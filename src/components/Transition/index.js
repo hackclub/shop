@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Transition as ReactTransition } from 'react-transition-group'
 import getTransitionStyle from '../../utils/getTransitionStyle'
 import { historyExitingEventType, timeout } from '../../../gatsby-browser'
@@ -47,7 +47,7 @@ class Transition extends React.Component {
               ...getTransitionStyle({ status, timeout })
             }}
           >
-            {this.props.children}
+            <Fragment>{this.props.children}</Fragment>
           </div>
         )}
       </ReactTransition>

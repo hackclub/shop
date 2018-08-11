@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
+import { Container, Flex } from '@hackclub/design-system'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { Grid } from './style'
 import ProductCard from '../ProductCard'
 
-export default ({...props}) => (
+export default () => (
   <StaticQuery
     query={graphql`
       query {
@@ -23,17 +23,13 @@ export default ({...props}) => (
       }
     `}
     render={({ products }) => (
-      <Grid {...props}>
-        {products.edges.map(({ node: product }) => (
-          <Fragment>
+      <Container px={3} pb={4}>
+        <Flex mx={[1, 2, -3]} wrap justify="center">
+          {products.edges.map(({ node: product }) => (
             <ProductCard key={product.id} product={product} />
-            <ProductCard key={product.id} product={product} />
-            <ProductCard key={product.id} product={product} />
-            <ProductCard key={product.id} product={product} />
-            <ProductCard key={product.id} product={product} />
-          </Fragment>
-        ))}
-      </Grid>
+          ))}
+        </Flex>
+      </Container>
     )}
   />
 )
