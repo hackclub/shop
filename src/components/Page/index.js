@@ -2,9 +2,17 @@ import React, { Component, Fragment } from 'react'
 import { ThemeProvider } from '@hackclub/design-system'
 import { throttle } from 'throttle-debounce'
 
-import { Container, InnerContainer } from './style'
+import {
+  Container,
+  InnerContainer,
+  SectionHeading,
+  Heading,
+  Subheading
+} from './style'
 import Header from '../Header'
 import Footer from '../Footer'
+
+export { SectionHeading, Heading, Subheading }
 
 export default class extends Component {
   constructor() {
