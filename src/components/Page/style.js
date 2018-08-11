@@ -9,7 +9,7 @@ export const Container = styled(Box)`
   max-width: 100%;
 `
 
-export const InnerContainer = styled.div`
+export const InnerContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
