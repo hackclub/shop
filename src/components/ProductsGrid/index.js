@@ -15,6 +15,7 @@ export default () => (
               title
               fields {
                 image
+                slug
               }
             }
           }
@@ -27,6 +28,7 @@ export default () => (
           {products.edges.map(({ node: product }) => (
             <ProductCard
               key={product.id}
+              slug={product.fields.slug}
               img={product.fields.image}
               name={product.title}
             />

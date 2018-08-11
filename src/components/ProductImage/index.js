@@ -4,7 +4,7 @@ import VisibilitySensor from 'react-visibility-sensor'
 import { BlurredArt, Art } from './style'
 import Card from '../Card'
 
-export default ({src, alt}) => (
+export default ({ src, alt }) => (
   <VisibilitySensor>
     <Card>
       <BlurredArt src={src} alt={alt} />

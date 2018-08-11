@@ -12,7 +12,6 @@ const toKebabCase = str =>
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'ShopifyProducts') {
-
     // shortcut to getting the featured image
     const image = node.images.edges[0].node.src
     createNodeField({
@@ -54,8 +53,8 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
+            slug: node.fields.slug
+          }
         })
       })
       resolve()
