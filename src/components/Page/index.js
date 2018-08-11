@@ -38,7 +38,7 @@ export default class extends Component {
 
     return (
       <ThemeProvider webfonts>
-        <Container>
+        <Container bg="snow">
           <Header shadow={headerShadow} />
           <InnerContainer>
             <Fragment>{children}</Fragment>

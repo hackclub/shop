@@ -13,7 +13,7 @@ export const Container = styled(Flex).attrs({
   top: 0;
   left: 0;
   right: 0;
-  background: ${props => props.shadow ? props.theme.colors.snow : props.theme.colors.white};
+  background: ${props => props.shadow ? props.theme.colors.white : props.theme.colors.snow};
   z-index: 3;
   box-shadow: ${props => props.shadow ? '0 4px 8px rgba(0,0,0,0.04)' : 'none'};
   transition: all 0.2s ease-in-out;
