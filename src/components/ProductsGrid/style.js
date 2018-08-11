@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { Box } from '@hackclub/design-system'
+import { Box, Flex } from '@hackclub/design-system'
 
-export const Container = styled(Box)`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+export const Container = styled(Flex).attrs({
+  alignItems: 'flex-start',
+  justifyContent: 'center',
+})`
   width: 100%;
-  max-width: 968px;
+  max-width: 1024;
 `
 
 export const Grid = styled(Box)`
@@ -17,7 +17,7 @@ export const Grid = styled(Box)`
   width: 100%;
   max-width: 968px;
 
-  @media (max-width: 968px) {
+  ${props => props.theme.mediaQueries.lg} {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 16px;
   }

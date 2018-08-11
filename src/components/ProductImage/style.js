@@ -11,7 +11,7 @@ export const BlurredArt = styled(Img)`
   z-index: 1;
 
   /* there are some problems with blurring images on mobile devices and perf */
-  @media (max-width: 468px) {
+  ${props => props.theme.mediaQueries.sm} {
     display: none;
   }
 `

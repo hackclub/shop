@@ -19,7 +19,7 @@ export const InnerContainer = styled(Box)`
   padding-left: 32px;
   padding-right: 32px;
   position: relative;
-  @media (max-width: 968px) {
+  ${props => props.theme.mediaQueries.lg} {
     align-items: flex-start;
     max-width: 100%;
     padding-left: 16px;
@@ -36,7 +36,7 @@ export const SectionHeading = styled(Box)`
   margin-top: 72px;
   margin-bottom: 48px;
   max-width: 50%;
-  @media (max-width: 968px) {
+  ${props => props.theme.mediaQueries.lg} {
     align-items: flex-start;
     max-width: 100%;
   }
@@ -47,7 +47,7 @@ export const Heading = styled(H.h3)`
   font-weight: 700;
   color: ${props => props.theme.colors.black};
   text-align: center;
-  @media (max-width: 968px) {
+  ${props => props.theme.mediaQueries.lg} {
     text-align: left;
     max-width: 100%;
   }
@@ -59,7 +59,7 @@ export const Subheading = styled(H.h4)`
   color: ${props => props.theme.colors.slate};
   text-align: center;
 
-  @media (max-width: 968px) {
+  ${props => props.theme.mediaQueries.lg} {
     text-align: left;
     max-width: 100%;
   }
