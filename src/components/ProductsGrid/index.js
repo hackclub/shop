@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { Container, Grid } from './style'
+import { Grid } from './style'
 import ProductCard from '../ProductCard'
 
-export default () => (
+export default ({...props}) => (
   <StaticQuery
     query={graphql`
       query {
@@ -23,13 +23,17 @@ export default () => (
       }
     `}
     render={({ products }) => (
-      <Container>
-        <Grid>
-          {products.edges.map(({ node: product }) => (
+      <Grid {...props}>
+        {products.edges.map(({ node: product }) => (
+          <Fragment>
             <ProductCard key={product.id} product={product} />
-          ))}
-        </Grid>
-      </Container>
+            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} />
+          </Fragment>
+        ))}
+      </Grid>
     )}
   />
 )
