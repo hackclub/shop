@@ -1,5 +1,10 @@
 import React from 'react'
+import { Heading } from '@hackclub/design-system'
+
+import Page from '../components/Page'
 
 export default () => (
-  <h1>hello world</h1>
+  <Page>
+    <Heading>hello world</Heading>
+  </Page>
 )
