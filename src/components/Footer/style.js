@@ -32,7 +32,7 @@ export const Icons = styled(Box)`
   a:hover {
     color: ${props => props.theme.colors.black};
   }
-  
+
   svg {
     margin-left: 16px;
   }
