@@ -10,6 +10,7 @@ import {
   Subheading
 } from './style'
 import Header from '../Header'
+import Transition from '../Transition'
 import Footer from '../Footer'
 
 export { SectionHeading, Heading, Subheading }
@@ -49,7 +50,9 @@ export default class extends Component {
         <Container bg="snow">
           <Header shadow={headerShadow} />
           <InnerContainer>
-            <Fragment>{children}</Fragment>
+            <Transition>
+              <Fragment>{children}</Fragment>
+            </Transition>
           </InnerContainer>
           <Footer />
         </Container>

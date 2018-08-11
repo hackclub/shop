@@ -1,3 +1,5 @@
 import React from 'react'
 
-export default p => <h1>hello world</h1>
+import Page from '../components/Page'
+
+export default p => <Page><h1>hello world</h1></Page>
