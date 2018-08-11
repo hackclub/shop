@@ -49,11 +49,11 @@ export default class extends Component {
       <ThemeProvider webfonts>
         <Container bg="snow">
           <Header shadow={headerShadow} />
-          <InnerContainer>
-            <Transition>
+          <Transition>
+            <InnerContainer>
               <Fragment>{children}</Fragment>
-            </Transition>
-          </InnerContainer>
+            </InnerContainer>
+          </Transition>
           <Footer />
         </Container>
       </ThemeProvider>
