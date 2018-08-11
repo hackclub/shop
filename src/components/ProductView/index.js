@@ -9,6 +9,7 @@ import {
   Divider,
   Label
 } from './style'
+import DesignersGrid from '../DesignersGrid'
 
 export default ({ product: { id, title, descriptionHtml } }) => (
   <Grid>
@@ -16,6 +17,7 @@ export default ({ product: { id, title, descriptionHtml } }) => (
       <Divider>
         <Label>Designed By</Label>
       </Divider>
+      <DesignersGrid designers={['h', 'adsa', 'adad']} />
     </Sidebar>
 
     <Content>
