@@ -1,9 +1,7 @@
 import React from 'react'
-import { Heading, Flex, Text } from '@hackclub/design-system'
-import { Link } from 'gatsby'
+import { Heading } from '@hackclub/design-system'
 
 import { Base, ProductCard } from './style'
-import ProductImage from '../ProductImage'
 
 export default ({
   product: {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Container, Flex } from '@hackclub/design-system'
 import { StaticQuery, graphql } from 'gatsby'
 

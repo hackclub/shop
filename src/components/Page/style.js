@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { Box, Heading } from '@hackclub/design-system'
 
 export const SectionHeading = Heading.h2.extend.attrs({
