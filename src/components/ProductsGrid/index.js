@@ -26,12 +26,7 @@ export default () => (
       <Container>
         <Grid>
           {products.edges.map(({ node: product }) => (
-            <ProductCard
-              key={product.id}
-              slug={product.fields.slug}
-              img={product.fields.image}
-              name={product.title}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </Grid>
       </Container>

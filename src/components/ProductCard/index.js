@@ -3,8 +3,13 @@ import { Link } from 'gatsby'
 
 import ProductImage from '../ProductImage'
 
-export default ({ slug, img, name }) => (
+export default ({
+  product: {
+    fields: { slug, image },
+    title
+  }
+}) => (
   <Link to={slug}>
-    <ProductImage src={img} alt={name} />
+    <ProductImage src={image} alt={title} />
   </Link>
 )
