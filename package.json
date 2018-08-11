@@ -1,8 +1,8 @@
 {
-  "name": "store",
+  "name": "shop",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/hackclub/store",
+  "repository": "https://github.com/hackclub/shop",
   "author": "merelinguist <merelinguist@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
