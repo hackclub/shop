@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { Container, Grid } from './style'
+import ProductCard from '../ProductCard'
 
 export default () => (
   <StaticQuery
@@ -12,6 +13,9 @@ export default () => (
             node {
               id
               title
+              fields {
+                image
+              }
             }
           }
         }
@@ -21,7 +25,11 @@ export default () => (
       <Container>
         <Grid>
           {products.edges.map(({ node: product }) => (
-            <li key={product.id}>{product.title}</li>
+            <ProductCard
+              key={product.id}
+              img={product.fields.image}
+              name={product.title}
+            />
           ))}
         </Grid>
       </Container>

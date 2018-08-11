@@ -18,6 +18,8 @@
     "gatsby-source-shopify-storefront": "^1.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-image": "^1.4.1",
+    "react-visibility-sensor": "^3.11.1",
     "styled-components": "^3.4.2",
     "throttle-debounce": "^2.0.1"
   },
