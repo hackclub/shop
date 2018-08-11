@@ -17,7 +17,7 @@ export default () => (
       pharetra. Vestibulum erat wisi, condimentum sed,{' '}
       <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit
       eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus
-      enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis.
+      enim ac dui. in turpis pulvinar facilisis.
       Ut felis.
     </p>
 
@@ -30,7 +30,7 @@ export default () => (
       pharetra. Vestibulum erat wisi, condimentum sed,{' '}
       <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit
       eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus
-      enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis.
+      enim ac dui. in turpis pulvinar facilisis.
       Ut felis.
     </p>
 
@@ -43,7 +43,7 @@ export default () => (
       pharetra. Vestibulum erat wisi, condimentum sed,{' '}
       <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit
       eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus
-      enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis.
+      enim ac dui.in turpis pulvinar facilisis.
       Ut felis.
     </p>
   </Page>

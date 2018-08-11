@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Description, Icons } from './style'
-import { Icon } from '@hackclub/design-system'
 
 const icons = {
   twitter:
@@ -12,7 +11,7 @@ const icons = {
 const Service = ({ href, icon, ...props }) => (
   <a
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
     href={href}
     aria-label={`Hack Club on ${icon}`}
     {...props}
