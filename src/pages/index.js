@@ -6,7 +6,7 @@ import ProductsGrid from '../components/ProductsGrid'
 
 export default () => (
   <Page>
-    <Container maxWidth={35} align={['left', 'center']}>
+    <Container px={3} maxWidth={35} align={['left', 'center']}>
       <Heading.h1 f={6} color="black">
         Hack Club Shop
       </Heading.h1>
