@@ -1,3 +1,3 @@
-# store
+# shop
 
 **Work in progress**
