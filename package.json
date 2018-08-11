@@ -1,0 +1,17 @@
+{
+  "name": "store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hackclub/store",
+  "author": "merelinguist <merelinguist@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.0-beta.98",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
