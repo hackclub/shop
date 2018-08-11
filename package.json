@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "fmt": "prettier \"{src/**,}/*.js\" --single-quote --no-semi --write"
+    "fmt": "prettier \"{gatsby-*.js,src/**/*.js}\" --single-quote --no-semi --write"
   },
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-10",

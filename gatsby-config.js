@@ -7,7 +7,7 @@ module.exports = {
       options: {
         siteName: 'hackclub',
         accessToken: 'ba720b36f1e99b2719bc74ef728ec847'
-      },
+      }
     }
   ]
 }
