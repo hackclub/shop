@@ -2,22 +2,16 @@ import styled from 'styled-components'
 import { Box, Heading } from '@hackclub/design-system'
 
 export const Grid = styled(Box)`
-  min-width: 100vw;
-  min-height: 100vh;
   display: grid;
-  grid-template-columns: 280px minmax(min-content, max-content);
-  grid-gap: 64px;
-  grid-template-rows: auto;
-  grid-template-areas: 'sidebar content';
-  max-width: 102px;
-  @media (max-width: ${({ theme }) => theme.breakpoints[2]}em) {
-    grid-template-columns: 240px minmax(min-content, max-content);
-    grid-gap: 32px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints[1]}em) {
-    grid-template-columns: 1fr;
-    grid-template-areas: 'content' 'sidebar';
-    grid-gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'content' 'sidebar';
+  grid-gap: 16px;
+
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 64px;
+    grid-template-rows: auto;
+    grid-template-areas: 'sidebar content';
   }
 `
 
