@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Heading, IconButton } from '@hackclub/design-system'
+import { Heading, IconButton, Text, Link } from '@hackclub/design-system'
 
 import { CloseButton, Modal, Overlay } from '../Modal'
 
@@ -29,6 +29,14 @@ export default class extends Component {
             <Modal align="left" my={4} p={[3, 4]}>
               <CloseButton onClick={this.toggle} />
               <Heading.h2 color="black">Your Cart</Heading.h2>
+              <Text f={2} my={3}>
+                The money we charge for swag helps to cover production and
+                shipping costs. Hack Club is a new kind of non-profit with{' '}
+                <Link href="https://hackclub.com/donate">
+                  total transparency
+                </Link>
+                , including in our financials.
+              </Text>
             </Modal>
             <Overlay onClick={this.toggle} />
           </Fragment>
