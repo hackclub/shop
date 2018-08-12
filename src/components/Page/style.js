@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 import { Box, Heading, IconButton } from '@hackclub/design-system'
 
-export const SectionHeading = Heading.h2.extend.attrs({
-  f: [4, 5],
+export const SectionHeading = Heading.h1.extend.attrs({
   color: 'black',
-  align: 'center',
-  mt: [3, 4],
-  p: 3
+  align: ['left', 'center'],
+  p: [null, 3]
 })``
 
 export const Gradient = Box.extend`
