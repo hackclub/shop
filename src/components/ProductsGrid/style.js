@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Box } from '@hackclub/design-system'
 
-export const Grid = Box.extend`
+export const Grid = styled(Box)`
   display: grid;
   grid-gap: 1rem;
   ${({ theme }) => theme.mediaQueries.md} {

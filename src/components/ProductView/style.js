@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Heading, hexa } from '@hackclub/design-system'
+import { Box, Heading } from '@hackclub/design-system'
 
 export const Grid = styled(Box)`
   min-width: 100vw;

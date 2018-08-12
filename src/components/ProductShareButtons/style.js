@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Box } from '@hackclub/design-system'
 
-export const Container = styled.div`
+export const Container = styled(Box)`
   margin: 32px 0 40px;
   display: flex;
   flex-wrap: wrap;

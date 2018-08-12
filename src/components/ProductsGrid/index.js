@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container, Flex } from '@hackclub/design-system'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { Grid } from './style'

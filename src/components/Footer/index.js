@@ -1,6 +1,6 @@
 import React from 'react'
 import { Base, Wrapper } from './style'
-import { Flex, Box, Heading, Text, Link, cx } from '@hackclub/design-system'
+import { Text, Link } from '@hackclub/design-system'
 
 export default () => (
   <Base align="center" color="black" p={[4, 5]}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Icon, ThemeProvider, cx } from '@hackclub/design-system'
+import { Container, ThemeProvider, cx } from '@hackclub/design-system'
 import Helmet from 'react-helmet'
 import { name, description, img, url } from '../../data.json'
 import { throttle } from 'throttle-debounce'
