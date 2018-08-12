@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Icon, ThemeProvider } from '@hackclub/design-system'
+import { Container, Icon, ThemeProvider, cx } from '@hackclub/design-system'
 import Helmet from 'react-helmet'
 import { throttle } from 'throttle-debounce'
 
@@ -38,10 +38,15 @@ export default class extends Component {
 
     return (
       <ThemeProvider webfonts>
+        <style
+          children={`body {
+      background: ${cx('snow')};
+    }`}
+        />
         <Helmet>
           <title>Hack Club Store</title>
         </Helmet>
-        <Container px={3}>
+        <Container px={3} py={[4, 5]}>
           <Transition>{children}</Transition>
           <ScrollToTop
             isVisible={scrollToTopVisible}

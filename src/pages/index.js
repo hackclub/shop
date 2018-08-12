@@ -1,13 +1,11 @@
 import React from 'react'
 
-import Page, { Gradient, SectionHeading } from '../components/Page'
+import Page, { SectionHeading } from '../components/Page'
 import ProductsGrid from '../components/ProductsGrid'
 
 export default () => (
   <Page>
-    <Gradient>
-      <SectionHeading>Hack Club Store</SectionHeading>
-      <ProductsGrid />
-    </Gradient>
+    <SectionHeading>Hack Club Store</SectionHeading>
+    <ProductsGrid />
   </Page>
 )

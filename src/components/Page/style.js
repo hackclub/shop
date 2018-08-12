@@ -30,11 +30,11 @@ export const ScrollToTop = styled(IconButton)`
   opacity: ${props => (props.isVisible ? '1' : '0')};
   background-color: rgb(228, 45, 66);
   background-image: linear-gradient(
-      -86deg,
-      ${({ theme }) => theme.colors.orange[5]},
-      ${({ theme }) => theme.colors.red[5]},
-      ${({ theme }) => theme.colors.red[6]}
-    );
+    -86deg,
+    ${({ theme }) => theme.colors.orange[5]},
+    ${({ theme }) => theme.colors.red[5]},
+    ${({ theme }) => theme.colors.red[6]}
+  );
   color: ${props => props.theme.colors.white};
   transform: translateY(${props => (props.isVisible ? '0' : '80px')});
   cursor: pointer;
