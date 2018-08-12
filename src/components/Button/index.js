@@ -42,7 +42,8 @@ export class CopyLinkButton extends Component {
         component="a"
       >
         <IconButton
-          bg={isClicked ? 'smoke' : 'muted'}
+          disabled={isClicked}
+          bg="slate"
           name="content_copy"
           children={isClicked ? 'Copied!' : children}
         />
