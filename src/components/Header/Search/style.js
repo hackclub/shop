@@ -14,6 +14,7 @@ export const Container = styled.div`
 `
 
 export const SearchInput = styled.input`
+  font-family: inherit;
   border: 0px none;
   outline: currentcolor none 0px;
   -moz-appearance: none;
