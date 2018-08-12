@@ -3522,7 +3522,7 @@ execa@^0.8.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-exenv@^1.2.1:
+exenv@^1.2.1, exenv@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
 
@@ -7022,6 +7022,12 @@ react-lifecycles-compat@^3.0.4:
 react-overdrive@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/react-overdrive/-/react-overdrive-0.0.10.tgz#7cbe060906a2a98977a86a763bd417b736dfd17d"
+
+react-scrolllock@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-scrolllock/-/react-scrolllock-3.0.1.tgz#76955fef2de5bfba677166b36ce4eb28231b37a9"
+  dependencies:
+    exenv "^1.2.2"
 
 react-side-effect@^1.1.0:
   version "1.1.5"

@@ -24,6 +24,7 @@
     "react-helmet": "^5.2.0",
     "react-image": "^1.4.1",
     "react-overdrive": "^0.0.10",
+    "react-scrolllock": "^3.0.1",
     "react-tilt": "^0.1.4",
     "react-transition-group": "^2.4.0",
     "react-visibility-sensor": "^3.11.1",
