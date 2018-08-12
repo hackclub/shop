@@ -7,13 +7,6 @@ export const Base = styled(Box)`
   text-decoration: none;
   display: flex;
   flex: 1 0 auto;
-  width: 100%;
-  ${({ theme }) => theme.mediaQueries[1]} {
-    width: 50%;
-  }
-  ${({ theme }) => theme.mediaQueries[2]} {
-    width: 33.33%;
-  }
 `
 
 export const ProductCard = Flex.extend.attrs({

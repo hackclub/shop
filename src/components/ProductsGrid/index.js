@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Flex } from '@hackclub/design-system'
 import { StaticQuery, graphql } from 'gatsby'
 
+import { Grid } from './style'
 import ProductCard from '../ProductCard'
 
 export default () => (
@@ -24,11 +25,11 @@ export default () => (
     `}
     render={({ products }) => (
       <Container px={3} pb={4}>
-        <Flex mx={[1, 2, -3]} wrap justify="center">
+        <Grid>
           {products.edges.map(({ node: product }) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </Flex>
+        </Grid>
       </Container>
     )}
   />
