@@ -1,37 +1,33 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Heading } from '@hackclub/design-system'
+import { Box, Heading, Text } from '@hackclub/design-system'
+import Img from 'react-image'
 
-import { Base, ProductCard } from './style'
+import { Item } from './style'
 
 export default ({
   product: {
     id,
     fields: { slug, image },
-    title
+    title,
+    description,
+    variants
   }
 }) => (
   <Link to={slug}>
-    <Base
-      id={id}
-      element="a"
-      href={slug}
-      target="_blank"
-      itemScope
-      itemType="http://schema.org/Product"
-    >
-      <ProductCard bg={image}>
-        <Heading.h3
-          color="white"
-          regular
-          align="center"
-          my={2}
-          style={{ flex: '1 0 auto' }}
-          itemProp="name"
-        >
+    <Item>
+      <Img src={image} alt={title} />
+      <Box px={3}>
+        <Heading.h3 f={3} py={3} color="black">
           {title}
         </Heading.h3>
-      </ProductCard>
-    </Base>
+        <Text f={2} color="black">
+          {description}
+        </Text>
+        <Text f={2} pb={3} color="muted">
+          ${variants.edges[0].node.price}
+        </Text>
+      </Box>
+    </Item>
   </Link>
 )

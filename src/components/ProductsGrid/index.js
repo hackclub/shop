@@ -14,6 +14,14 @@ export default () => (
             node {
               id
               title
+              description
+              variants {
+                edges {
+                  node {
+                    price
+                  }
+                }
+              }
               fields {
                 image
                 slug
