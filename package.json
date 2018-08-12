@@ -18,6 +18,7 @@
     "gatsby-plugin-styled-components": "^3.0.0-beta.3",
     "gatsby-source-shopify-storefront": "^1.0.0",
     "react": "^16.4.2",
+    "react-clipboard.js": "^2.0.0",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-image": "^1.4.1",

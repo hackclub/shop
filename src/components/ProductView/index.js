@@ -12,6 +12,7 @@ import {
 } from './style'
 import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
+import ProductShareButtons from '../ProductShareButtons'
 
 export default ({
   product: {
@@ -35,6 +36,8 @@ export default ({
     <Content>
       <Title>{title}</Title>
       <Description>{descriptionHtml}</Description>
+
+      <ProductShareButtons slug={slug} />
     </Content>
   </Grid>
 )

@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import { Box, Heading, hexa } from '@hackclub/design-system'
 
-export const Grid = styled(Box).attrs({
-  mt: 5
-})`
+export const Grid = styled(Box)`
   min-width: 100vw;
   min-height: 100vh;
   display: grid;
