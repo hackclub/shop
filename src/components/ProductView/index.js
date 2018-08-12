@@ -19,6 +19,7 @@ export default ({
     id,
     title,
     descriptionHtml,
+    tags,
     fields: { slug, image }
   }
 }) => (
@@ -30,7 +31,9 @@ export default ({
       <Divider>
         <Label>Designed By</Label>
       </Divider>
-      <DesignersGrid designers={['h', 'adsa', 'adad']} />
+      <DesignersGrid
+        designers={tags ? tags : ['merelinguist', 'zanedb_', 'hackclub']}
+      />
     </Sidebar>
 
     <Content>
