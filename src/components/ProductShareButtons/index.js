@@ -1,11 +1,12 @@
 import React from 'react'
 import { CopyLinkButton } from '../Button'
 import { Container } from './style'
+import data from '../../data.json'
+
+const { url } = data
 
 export default ({ slug }) => (
   <Container>
-    <CopyLinkButton text={`https://hackclub-shop.netlify.com/${slug}`}>
-      Copy
-    </CopyLinkButton>
+    <CopyLinkButton text={url + slug}>Copy</CopyLinkButton>
   </Container>
 )
