@@ -1,9 +1,7 @@
 import React from 'react'
 import { CopyLinkButton } from '../Button'
 import { Container } from './style'
-import data from '../../data.json'
-
-const { url } = data
+import { url } from '../../data.json'
 
 export default ({ slug }) => (
   <Container>

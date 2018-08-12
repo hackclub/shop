@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Container, Icon, ThemeProvider, cx } from '@hackclub/design-system'
 import Helmet from 'react-helmet'
-import data from '../../data.json'
+import { name, description, img, url } from '../../data.json'
 import { throttle } from 'throttle-debounce'
 
 import Transition from '../Transition'
 import Footer from '../Footer'
 import { ScrollToTop } from './style'
 export { Gradient, SectionHeading } from './style'
-
-const { name, description, img, url } = data
 
 export default class extends Component {
   constructor() {
