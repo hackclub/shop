@@ -48,7 +48,9 @@ export default class extends Component {
     }`}
         />
         <Helmet>
-          <title>{name}</title>
+          <title>
+            {this.props.title ? `${this.props.title} — ${name}` : name}
+          </title>
           <html lang="en" />
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />

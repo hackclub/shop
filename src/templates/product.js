@@ -5,7 +5,7 @@ import Page from '../components/Page'
 import ProductView from '../components/ProductView'
 
 export default ({ data: { shopifyProducts } }) => (
-  <Page>
+  <Page title={shopifyProducts.title}>
     <ProductView product={shopifyProducts} />
   </Page>
 )
