@@ -38,7 +38,7 @@ export default ({ shadow }) => (
       )}
     />
     <ButtonRowContainer>
-      <Button>GitHub</Button>
+      <Button href="https://github.com/hackclub/shop">GitHub</Button>
     </ButtonRowContainer>
   </Container>
 )
