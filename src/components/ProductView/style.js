@@ -57,7 +57,7 @@ export const Divider = styled(Box)`
 export const Label = styled.span`
   position: relative;
   top: -13px;
-  background: ${props => props.theme.colors.white};
+  background: ${props => props.theme.colors.snow};
   padding: 2px 16px 2px 0;
   font-size: 16px;
   font-weight: 500;
