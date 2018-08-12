@@ -32,13 +32,11 @@ export default () => (
       }
     `}
     render={({ products }) => (
-      <Container px={3} pb={4}>
-        <Grid>
-          {products.edges.map(({ node: product }) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </Grid>
-      </Container>
+      <Grid>
+        {products.edges.map(({ node: product }) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </Grid>
     )}
   />
 )

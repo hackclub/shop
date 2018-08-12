@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from '@hackclub/design-system'
+import { Container, ThemeProvider } from '@hackclub/design-system'
 import Helmet from 'react-helmet'
 
 import Transition from '../Transition'
@@ -10,6 +10,8 @@ export default props => (
     <Helmet>
       <title>Hack Club Store</title>
     </Helmet>
-    <Transition>{props.children}</Transition>
+    <Container px={3}>
+      <Transition>{props.children}</Transition>
+    </Container>
   </ThemeProvider>
 )

@@ -21,7 +21,7 @@ export default ({
     fields: { slug, image }
   }
 }) => (
-  <Grid px={3}>
+  <Grid>
     <Sidebar>
       <Link to={slug}>
         <ProductImage src={image} alt={title} />
