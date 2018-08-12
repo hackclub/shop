@@ -7,6 +7,6 @@ const { url } = data
 
 export default ({ slug }) => (
   <Container>
-    <CopyLinkButton text={url + slug}>Copy</CopyLinkButton>
+    <CopyLinkButton text={url + slug}>Copy Link</CopyLinkButton>
   </Container>
 )
