@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import {
   Grid,
@@ -9,11 +10,22 @@ import {
   Divider,
   Label
 } from './style'
+import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
 
-export default ({ product: { id, title, descriptionHtml } }) => (
-  <Grid>
+export default ({
+  product: {
+    id,
+    title,
+    descriptionHtml,
+    fields: { slug, image }
+  }
+}) => (
+  <Grid mx={[null, 3, 4]}>
     <Sidebar>
+      <Link to={slug}>
+        <ProductImage src={image} alt={title} />
+      </Link>
       <Divider>
         <Label>Designed By</Label>
       </Divider>
