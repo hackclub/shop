@@ -1,7 +1,8 @@
 import React from 'react'
+import { Button } from '@hackclub/design-system'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
-import { Container, Logo } from './style'
+import { Container, Logo, ButtonRowContainer } from './style'
 import Search from './Search'
 
 export default ({ shadow }) => (
@@ -36,5 +37,8 @@ export default ({ shadow }) => (
         <Search shadow={shadow} products={products.edges} />
       )}
     />
+    <ButtonRowContainer>
+      <Button>GitHub</Button>
+    </ButtonRowContainer>
   </Container>
 )

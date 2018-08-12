@@ -47,3 +47,12 @@ export const Logo = styled(Link)`
       }
     `};
 `
+
+export const ButtonRowContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  grid-area: actions;
+  align-items: center;
+  @media (max-width: 968px) {
+  }
+`
