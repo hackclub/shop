@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { throttle } from 'throttle-debounce'
 
 import Transition from '../Transition'
+import Footer from '../Footer'
 import { ScrollToTop } from './style'
 export { Gradient, SectionHeading } from './style'
 
@@ -55,6 +56,7 @@ export default class extends Component {
             size={32}
           />
         </Container>
+        <Footer />
       </ThemeProvider>
     )
   }
