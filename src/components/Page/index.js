@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { name, description, img, url } from '../../data.json'
 import { throttle } from 'throttle-debounce'
 
+import Header from '../Header'
 import Transition from '../Transition'
 import Footer from '../Footer'
 import { ScrollToTop } from './style'
@@ -13,7 +14,7 @@ export default class extends Component {
   constructor() {
     super()
 
-    this.state = { scrollToTopVisible: false }
+    this.state = { headerShadow: false, scrollToTopVisible: false }
     this.handleScroll = throttle(300, this.handleScroll)
   }
 
@@ -26,8 +27,9 @@ export default class extends Component {
   }
 
   handleScroll = () => {
+    const headerShadow = window && window.pageYOffset > 0
     const scrollToTopVisible = window && window.pageYOffset > 240
-    return this.setState({ scrollToTopVisible })
+    return this.setState({ headerShadow, scrollToTopVisible })
   }
 
   scrollToTop = () => {
@@ -36,14 +38,14 @@ export default class extends Component {
 
   render() {
     const { children } = this.props
-    const { scrollToTopVisible } = this.state
+    const { headerShadow, scrollToTopVisible } = this.state
 
     return (
       <ThemeProvider webfonts>
         <style
           children={`body {
-      background: ${cx('snow')};
-    }`}
+              background: ${cx('snow')};
+            }`}
         />
         <Helmet>
           <title>
@@ -69,7 +71,8 @@ export default class extends Component {
           <meta property="og:type" content="website" />
           <meta property="og:url" content={url} />
         </Helmet>
-        <Container px={3} py={[4, 5]}>
+        <Header shadow={headerShadow} />
+        <Container px={3} mt={[6, 6, 6, 5]}>
           <Transition>{children}</Transition>
           <ScrollToTop
             isVisible={scrollToTopVisible}
