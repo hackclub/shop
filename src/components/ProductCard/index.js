@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Box, Heading, Text } from '@hackclub/design-system'
+import { Box, Heading, Text, Loading } from '@hackclub/design-system'
 import Img from 'react-image'
 
-import { Item } from './style'
+import { Item, LoadingBase } from './style'
 
 export default ({
   product: {
@@ -16,7 +16,15 @@ export default ({
 }) => (
   <Link to={slug}>
     <Item>
-      <Img src={image} alt={title} />
+      <Img
+        src={image}
+        alt={title}
+        loader={
+          <LoadingBase>
+            <Loading />
+          </LoadingBase>
+        }
+      />
       <Box px={3}>
         <Heading.h3 f={3} py={3} color="black">
           {title}
