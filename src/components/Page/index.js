@@ -72,7 +72,7 @@ export default class extends Component {
           <meta property="og:url" content={url} />
         </Helmet>
         <Header shadow={headerShadow} />
-        <Container px={3} mt={[6, 6, 6, 5]}>
+        <Container px={3} pt={[6, 6, 6, 5]}>
           <Transition>{children}</Transition>
           <ScrollToTop
             isVisible={scrollToTopVisible}

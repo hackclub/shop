@@ -4,7 +4,8 @@ import { Box, Heading, IconButton } from '@hackclub/design-system'
 export const SectionHeading = Heading.h1.extend.attrs({
   color: 'black',
   align: ['left', 'center'],
-  p: [null, 3]
+  px: 3,
+  my: 4
 })``
 
 export const Gradient = Box.extend`
