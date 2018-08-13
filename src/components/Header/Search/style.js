@@ -78,7 +78,7 @@ export const SearchInput = styled.input`
 
 export const Hits = styled.div`
   position: absolute;
-  top: 48px;
+  top: 64px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -106,4 +106,12 @@ export const SearchProductContainer = styled.section`
   &:hover {
     background: ${props => props.theme.colors.snow};
   }
+`
+
+export const Image = styled.img`
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  max-width: 40px;
 `
