@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { hexa } from '@hackclub/design-system'
+import { IconButton, hexa } from '@hackclub/design-system'
 
 export const ProductContainer = styled.section`
   padding: 12px;
@@ -19,4 +19,8 @@ export const Thumbnail = styled.img`
   height: 40px;
   min-width: 40px;
   max-width: 40px;
+`
+
+export const RemoveButton = styled(IconButton)`
+  margin-left: auto;
 `

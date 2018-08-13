@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Heading, IconButton, Text, Link, Flex } from '@hackclub/design-system'
 
-import { ProductContainer, Thumbnail } from './style'
+import { ProductContainer, Thumbnail, RemoveButton } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -41,7 +41,11 @@ export default class extends Component {
               </Text>
               <StoreContext.Consumer>
                 {({ client, checkout, removeLineItem }) => {
-                  console.log(checkout.lineItems)
+                  const handleRemove = id => event => {
+                    event.preventDefault()
+                    removeLineItem(client, checkout.id, id)
+                  }
+
                   return (
                     <Fragment>
                       {checkout.lineItems.map(item => (
@@ -56,6 +60,11 @@ export default class extends Component {
                               {item.variant.title}, {item.variant.price}
                             </Text>
                           </Flex>
+                          <RemoveButton
+                            name="close"
+                            color="black"
+                            onClick={handleRemove(item.id)}
+                          />
                         </ProductContainer>
                       ))}
                     </Fragment>
