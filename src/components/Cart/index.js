@@ -1,7 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { Heading, IconButton, Text, Link, Flex } from '@hackclub/design-system'
 
-import { ProductContainer, Thumbnail, RemoveButton } from './style'
+import {
+  ProductContainer,
+  Thumbnail,
+  RemoveButton,
+  CartContainer,
+  CartNumber
+} from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -18,14 +24,21 @@ export default class extends Component {
 
     return (
       <Fragment>
-        <IconButton
-          name="shopping_cart"
-          bg="smoke"
-          color="black"
-          onClick={this.toggle}
-          style={{ float: 'right' }}
-          {...this.props}
-        />
+        <CartContainer>
+          <IconButton
+            name="shopping_cart"
+            bg="smoke"
+            color="black"
+            onClick={this.toggle}
+            style={{ float: 'right' }}
+            {...this.props}
+          />
+          <StoreContext.Consumer>
+            {({ checkout }) => (
+              <CartNumber children={checkout.lineItems.length} />
+            )}
+          </StoreContext.Consumer>
+        </CartContainer>
         {active && (
           <Fragment>
             <Modal align="left" my={4} p={[3, 4]}>
@@ -72,7 +85,9 @@ export default class extends Component {
                   }
                   return (
                     <Flex align="center" justify="center">
-                      <Text color="muted" f={4}>Nothing in your cart.</Text>
+                      <Text color="muted" f={4}>
+                        Nothing in your cart.
+                      </Text>
                     </Flex>
                   )
                 }}
