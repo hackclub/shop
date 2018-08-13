@@ -6,7 +6,7 @@ import Card from '../Card'
 
 export default ({ designer }) => (
   <a
-    href={`https://twitter.com/${designer}`}
+    href={`https://github.com/${designer}`}
     target={'_blank'}
     rel={'noreferrer noopener'}
   >
@@ -15,7 +15,7 @@ export default ({ designer }) => (
         <VisibilitySensor>
           <Avatar
             size={40}
-            src="https://github.com/merelinguist.png"
+            src={`https://github.com/${designer}.png`}
             alt={designer}
           />
         </VisibilitySensor>

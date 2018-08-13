@@ -32,7 +32,7 @@ export default ({
         <Label>Designed By</Label>
       </Divider>
       <DesignersGrid
-        designers={tags ? tags : ['merelinguist', 'zanedb_', 'hackclub']}
+        designers={tags ? tags : ['merelinguist', 'zanedb', 'hackclub']}
       />
     </Sidebar>
 
