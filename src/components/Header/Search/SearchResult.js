@@ -17,7 +17,9 @@ export default ({
       <Image src={image} alt={title} />
       <Flex flexDirection="column" ml={3}>
         <Text color="black">{title}</Text>
-        <Text color="muted" f={1}>${variants.edges[0].node.price}</Text>
+        <Text color="muted" f={1}>
+          ${variants.edges[0].node.price}
+        </Text>
       </Flex>
     </SearchProductContainer>
   </Link>
