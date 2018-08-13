@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { IconButton } from '@hackclub/design-system'
 import ScrollLock from 'react-scrolllock'
 
-import { modalKeyframes, Modal, Overlayer } from './style'
+import { Modal, Overlayer } from './style'
 
 const Overlay = props => (
   <Fragment>

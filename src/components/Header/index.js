@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, IconButton } from '@hackclub/design-system'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 import { Container, Logo, ButtonRowContainer } from './style'
 import Search from './Search'

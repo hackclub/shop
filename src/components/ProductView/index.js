@@ -25,7 +25,7 @@ export default ({
     fields: { slug, image }
   }
 }) => (
-  <Grid pt={[null, 5]}>
+  <Grid my={[4, 5]}>
     <Sidebar>
       <Link to={slug}>
         <ProductImage src={image} alt={title} />
