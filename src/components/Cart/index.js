@@ -45,29 +45,35 @@ export default class extends Component {
                     event.preventDefault()
                     removeLineItem(client, checkout.id, id)
                   }
-
+                  if (checkout.lineItems.length > 0) {
+                    return (
+                      <Fragment>
+                        {checkout.lineItems.map(item => (
+                          <ProductContainer>
+                            <Thumbnail
+                              src={item.variant.image.src}
+                              alt={item.variant.title}
+                            />
+                            <Flex flexDirection="column" ml={3}>
+                              <Text color="black">{item.title}</Text>
+                              <Text color="muted" f={1}>
+                                {item.variant.title}, {item.variant.price}
+                              </Text>
+                            </Flex>
+                            <RemoveButton
+                              name="close"
+                              color="black"
+                              onClick={handleRemove(item.id)}
+                            />
+                          </ProductContainer>
+                        ))}
+                      </Fragment>
+                    )
+                  }
                   return (
-                    <Fragment>
-                      {checkout.lineItems.map(item => (
-                        <ProductContainer>
-                          <Thumbnail
-                            src={item.variant.image.src}
-                            alt={item.variant.title}
-                          />
-                          <Flex flexDirection="column" ml={3}>
-                            <Text color="black">{item.title}</Text>
-                            <Text color="muted" f={1}>
-                              {item.variant.title}, {item.variant.price}
-                            </Text>
-                          </Flex>
-                          <RemoveButton
-                            name="close"
-                            color="black"
-                            onClick={handleRemove(item.id)}
-                          />
-                        </ProductContainer>
-                      ))}
-                    </Fragment>
+                    <Flex align="center" justify="center">
+                      <Text color="muted" f={4}>Nothing in your cart.</Text>
+                    </Flex>
                   )
                 }}
               </StoreContext.Consumer>

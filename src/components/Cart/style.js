@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { IconButton, hexa } from '@hackclub/design-system'
+import { IconButton } from '@hackclub/design-system'
 
 export const ProductContainer = styled.section`
   padding: 12px;
-  border-bottom: 1px solid ${props => hexa(props.theme.colors.snow, 0.4)};
   display: flex;
   flex: 1 0 auto;
   width: 100%;
