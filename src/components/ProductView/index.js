@@ -31,9 +31,11 @@ export default ({
       <Divider>
         <Label>Designed By</Label>
       </Divider>
-      <DesignersGrid
-        designers={tags ? tags : ['merelinguist', 'zanedb', 'hackclub']}
-      />
+      {tags ? (
+        <DesignersGrid designers={tags} />
+      ) : (
+        <Label>Designers unavailable.</Label>
+      )}
     </Sidebar>
 
     <Content>
