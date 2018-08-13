@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Heading, IconButton, Text, Link } from '@hackclub/design-system'
 
 import { CloseButton, Modal, Overlay } from '../Modal'
+import StoreContext from '../../context/StoreContext'
 
 export default class extends Component {
   state = { active: false }
@@ -37,6 +38,16 @@ export default class extends Component {
                 </Link>
                 , including in our financials.
               </Text>
+              <StoreContext.Consumer>
+                {({ client, checkout, isCartOpen, removeLineItem, toggleCart }) => {
+                  return (
+                    <div>
+                      <h1>hello cart</h1>
+                      <h2>{checkout.lineItems.length}</h2>
+                    </div>
+                  )
+                }}
+              </StoreContext.Consumer>
             </Modal>
             <Overlay onClick={this.toggle} />
           </Fragment>
