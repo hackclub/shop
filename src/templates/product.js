@@ -20,6 +20,8 @@ export const query = graphql`
         edges {
           node {
             price
+            title
+            id
           }
         }
       }

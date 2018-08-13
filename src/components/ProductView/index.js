@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Button, Text } from '@hackclub/design-system'
 
 import {
   Grid,
@@ -10,10 +11,10 @@ import {
   Divider,
   Label
 } from './style'
-import { Text } from '@hackclub/design-system'
 import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
 import ProductShareButtons from '../ProductShareButtons'
+import AddToCart from '../AddToCart'
 
 export default ({
   product: {
@@ -48,6 +49,7 @@ export default ({
       </Text>
 
       <ProductShareButtons slug={slug} />
+      <AddToCart variants={variants} />
     </Content>
   </Grid>
 )

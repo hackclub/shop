@@ -39,7 +39,8 @@ export default class extends Component {
                 , including in our financials.
               </Text>
               <StoreContext.Consumer>
-                {({ client, checkout, isCartOpen, removeLineItem, toggleCart }) => {
+                {({ client, checkout, removeLineItem }) => {
+                  console.log(checkout)
                   return (
                     <div>
                       <h1>hello cart</h1>
