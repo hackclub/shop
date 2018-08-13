@@ -16,6 +16,13 @@ export const query = graphql`
       id
       title
       descriptionHtml
+      variants {
+        edges {
+          node {
+            price
+          }
+        }
+      }
       fields {
         image
         slug

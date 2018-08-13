@@ -10,6 +10,7 @@ import {
   Divider,
   Label
 } from './style'
+import { Text } from '@hackclub/design-system'
 import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
 import ProductShareButtons from '../ProductShareButtons'
@@ -20,6 +21,7 @@ export default ({
     title,
     descriptionHtml,
     tags,
+    variants,
     fields: { slug, image }
   }
 }) => (
@@ -41,6 +43,9 @@ export default ({
     <Content>
       <Title>{title}</Title>
       <Description>{descriptionHtml}</Description>
+      <Text f={4} pt={2} color="muted">
+        ${variants.edges[0].node.price}
+      </Text>
 
       <ProductShareButtons slug={slug} />
     </Content>
