@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import { Heading, IconButton, Text, Link } from '@hackclub/design-system'
+import { Heading, IconButton, Text, Link, Flex } from '@hackclub/design-system'
 
+import { ProductContainer, Thumbnail } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -40,12 +41,24 @@ export default class extends Component {
               </Text>
               <StoreContext.Consumer>
                 {({ client, checkout, removeLineItem }) => {
-                  console.log(checkout)
+                  console.log(checkout.lineItems)
                   return (
-                    <div>
-                      <h1>hello cart</h1>
-                      <h2>{checkout.lineItems.length}</h2>
-                    </div>
+                    <Fragment>
+                      {checkout.lineItems.map(item => (
+                        <ProductContainer>
+                          <Thumbnail
+                            src={item.variant.image.src}
+                            alt={item.variant.title}
+                          />
+                          <Flex flexDirection="column" ml={3}>
+                            <Text color="black">{item.title}</Text>
+                            <Text color="muted" f={1}>
+                              {item.variant.title}, {item.variant.price}
+                            </Text>
+                          </Flex>
+                        </ProductContainer>
+                      ))}
+                    </Fragment>
                   )
                 }}
               </StoreContext.Consumer>
