@@ -13,7 +13,10 @@ export default class AddToCart extends Component {
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
+    this.setState({ [event.target.name]: event.target.value }, () => {
+      this.forceUpdate()
+      this.handleErrors()
+    })
   }
 
   handleErrors() {
