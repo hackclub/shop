@@ -18,10 +18,10 @@ export default class AddToCart extends Component {
 
   handleErrors() {
     let errors = {}
-    this.state.variant === '' &&
-      (errors.variant = 'Please select a size first.')
-    this.state.quantity < 1 &&
-      (errors.quantity = 'Please choose a quantity of 1 or more.')
+    if (this.state.variant === '')
+      errors.variant = 'Please select a size first.'
+    if (this.state.quantity < 1)
+      errors.quantity = 'Please choose a quantity of 1 or more.'
 
     this.setState({
       errors
