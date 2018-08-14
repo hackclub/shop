@@ -13,6 +13,7 @@ export default class AddToCart extends Component {
   }
 
   handleChange = event => {
+    // update Field values and check for errors
     this.setState({ [event.target.name]: event.target.value }, () => {
       this.forceUpdate()
       this.handleErrors()
@@ -20,7 +21,7 @@ export default class AddToCart extends Component {
   }
 
   handleErrors() {
-    let errors = {}
+    const errors = {}
     if (this.state.variant === '')
       errors.variant = 'Please select a size first.'
     if (this.state.quantity < 1)
