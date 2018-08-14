@@ -5,28 +5,39 @@ import StoreContext from '../../context/StoreContext'
 export default class AddToCart extends Component {
   state = {
     variant: '',
-    quantity: 1
+    quantity: 1,
+    errors: {
+      variant: '',
+      quantity: ''
+    }
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
+    // update Field values and check for errors
+    this.setState({ [event.target.name]: event.target.value }, () => {
+      this.forceUpdate()
+      this.handleErrors()
+    })
+  }
+
+  handleErrors() {
+    const errors = {}
+    if (this.state.variant === '')
+      errors.variant = 'Please select a size first.'
+    if (this.state.quantity < 1)
+      errors.quantity = 'Please choose a quantity of 1 or more.'
+
+    this.setState({
+      errors
+    })
+
+    return errors === {}
   }
 
   handleSubmit = callback => event => {
-    console.log(this.state)
-    event.preventDefault()
-    if (this.state.variant === '') {
-      // TODO design a better way to show errors.
-      alert('Please select a size first.')
-      return
+    if (this.handleErrors()) {
+      callback(this.state.variant, this.state.quantity)
     }
-
-    if (this.state.quantity < 1) {
-      alert('Please choose a quantity of 1 or more.')
-      return
-    }
-
-    callback(this.state.variant, this.state.quantity)
   }
 
   render() {
@@ -39,9 +50,10 @@ export default class AddToCart extends Component {
             <Field
               name="variant"
               value={this.state.variant}
-              label="Choose a size:"
+              label="Choose a size"
               onChange={this.handleChange}
               type="select"
+              error={this.state.errors.variant}
             >
               <option disabled value="">
                 Choose Size
@@ -55,9 +67,10 @@ export default class AddToCart extends Component {
             <Field
               name="quantity"
               value={this.state.quantity}
-              label="Choose a quantity:"
+              label="Choose a quantity"
               onChange={this.handleChange}
               type="number"
+              error={this.state.errors.quantity}
             />
             <Button onClick={this.handleSubmit(addVariantToCart)} type="submit">
               Add to Cart
