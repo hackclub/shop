@@ -31,11 +31,7 @@ export default class AddToCart extends Component {
       errors
     })
 
-    if (errors !== {}) {
-      return false
-    } else {
-      return true
-    }
+    return errors === {}
   }
 
   handleSubmit = callback => event => {
