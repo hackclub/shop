@@ -35,7 +35,9 @@ export default class AddToCart extends Component {
   }
 
   handleSubmit = callback => event => {
-    if (this.handleErrors()) callback(this.state.variant, this.state.quantity)
+    if (this.handleErrors()) {
+      callback(this.state.variant, this.state.quantity)
+    }
   }
 
   render() {
