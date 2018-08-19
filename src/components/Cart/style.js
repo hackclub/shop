@@ -8,7 +8,7 @@ export const ProductContainer = styled.section`
   width: 100%;
   align-items: center;
   &:hover {
-    background: ${props => props.theme.colors.snow};
+    background: ${({ theme }) => theme.colors.snow};
   }
 `
 

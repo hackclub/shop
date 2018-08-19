@@ -3,7 +3,7 @@ import { Box } from '@hackclub/design-system'
 
 export const Card = styled(Box)`
   position: relative;
-  background: ${props => props.theme.colors.white};
+  background: ${({ theme }) => theme.colors.white};
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease-in-out;

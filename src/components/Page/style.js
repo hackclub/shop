@@ -34,7 +34,7 @@ export const ScrollToTop = styled(IconButton)`
     ${({ theme }) => theme.colors.red[5]},
     ${({ theme }) => theme.colors.red[6]}
   );
-  color: ${props => props.theme.colors.white};
+  color: ${({ theme }) => theme.colors.white};
   transform: translateY(${props => (props.isVisible ? '0' : '80px')});
   cursor: pointer;
   &:hover {

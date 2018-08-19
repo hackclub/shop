@@ -41,7 +41,7 @@ export const Description = styled(Heading.h2).attrs({
 export const Divider = styled(Box)`
   position: relative;
   height: 1px;
-  border-bottom: 1px solid ${props => props.theme.colors.smoke};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.smoke};
   width: 100%;
   margin-top: 48px;
 `
@@ -49,9 +49,9 @@ export const Divider = styled(Box)`
 export const Label = styled.span`
   position: relative;
   top: -13px;
-  background: ${props => props.theme.colors.snow};
+  background: ${({ theme }) => theme.colors.snow};
   padding: 2px 16px 2px 0;
   font-size: 16px;
   font-weight: 500;
-  color: ${props => props.theme.colors.slate};
+  color: ${({ theme }) => theme.colors.slate};
 `
