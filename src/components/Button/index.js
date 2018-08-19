@@ -23,10 +23,7 @@ export class CopyLinkButton extends Component {
 
   onClick = () => {
     this.setState({ isClicked: true })
-
-    const ref = setTimeout(() => {
-      return this.setState({ isClicked: false })
-    }, 2000)
+    const ref = setTimeout(() => this.setState({ isClicked: false }), 2000)
     this.ref = ref
   }
 
@@ -39,7 +36,7 @@ export class CopyLinkButton extends Component {
         style={{ background: 'none' }}
         data-clipboard-text={text}
         onSuccess={this.onClick}
-        component="a"
+        component="span"
       >
         <IconButton
           disabled={isClicked}
