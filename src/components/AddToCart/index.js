@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Button, Field } from '@hackclub/design-system'
 import StoreContext from '../../context/StoreContext'
 
@@ -55,25 +55,16 @@ export default class AddToCart extends Component {
               type="select"
               error={this.state.errors.variant}
             >
-              {variants.edges.length === 1 ? (
-                <option
-                  value={variants.edges[0].node.id}
-                  key={variants.edges[0].node.id}
-                >
-                  {variants.edges[0].node.title}
+              {variants.edges.length !== 1 && (
+                <option disabled value="">
+                  Choose Size
                 </option>
-              ) : (
-                <Fragment>
-                  <option disabled value="">
-                    Choose Size
-                  </option>
-                  {variants.edges.map(variant => (
-                    <option value={variant.node.id} key={variant.node.id}>
-                      {variant.node.title}
-                    </option>
-                  ))}
-                </Fragment>
               )}
+              {variants.edges.map(variant => (
+                <option value={variant.node.id} key={variant.node.id}>
+                  {variant.node.title}
+                </option>
+              ))}
             </Field>
             <Field
               name="quantity"
