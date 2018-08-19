@@ -10,10 +10,10 @@ export default () => (
       <SocialLink href="https://github.com/hackclub/shop">
         <Icon glyph="github" />
       </SocialLink>
-      <SocialLink href="https://twitter.com/starthackclub">
+      <SocialLink href="https://twitter.com/hackclub">
         <Icon glyph="twitter" />
       </SocialLink>
-      <SocialLink href="https://facebook.com/starthackclub">
+      <SocialLink href="https://www.facebook.com/Hack-Club-741805665870458">
         <Icon glyph="facebook" />
       </SocialLink>
     </Box>
