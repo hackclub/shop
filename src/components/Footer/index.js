@@ -21,7 +21,7 @@ export default () => (
 
     <Flex>
       <span>
-        Made by {' '}
+        Made by{' '}
         <FooterLink bold href="https://github.com/merelinguist">
           @merelinguist
         </FooterLink>

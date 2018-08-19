@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Field } from '@hackclub/design-system'
 import StoreContext from '../../context/StoreContext'
 
-export default class AddToCart extends Component {
+export default class extends Component {
   state = {
     variant: '',
     quantity: 1,
@@ -12,15 +12,15 @@ export default class AddToCart extends Component {
     }
   }
 
-  handleChange = event => {
+  handleChange = e => {
     // update Field values and check for errors
-    this.setState({ [event.target.name]: event.target.value }, () => {
+    this.setState({ [e.target.name]: e.target.value }, () => {
       this.forceUpdate()
       this.handleErrors()
     })
   }
 
-  handleErrors() {
+  handleErrors = () => {
     const errors = {}
     if (this.state.variant === '')
       errors.variant = 'Please select a size first.'
@@ -34,15 +34,18 @@ export default class AddToCart extends Component {
     return errors === {}
   }
 
-  handleSubmit = callback => event => {
-    if (this.handleErrors()) {
+
+  handleSubmit = callback => e => {
+    e.preventDefault()
+
+    if (this.handleErrors() !== {}) {
       callback(this.state.variant, this.state.quantity)
     }
   }
 
+
   render() {
     const { variants } = this.props
-
     return (
       <StoreContext.Consumer>
         {({ addVariantToCart }) => (
@@ -74,8 +77,8 @@ export default class AddToCart extends Component {
               type="number"
               error={this.state.errors.quantity}
             />
-            <Button onClick={this.handleSubmit(addVariantToCart)} type="submit">
-              Add to Cart
+            <Button onClick={this.handleSubmit(addVariantToCart)}>
+              Add to cart
             </Button>
           </form>
         )}

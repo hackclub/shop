@@ -13,6 +13,7 @@
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-10",
     "babel-plugin-styled-components": "^1.5.1",
+    "formik": "^1.0.3",
     "fuse.js": "^3.2.1",
     "gatsby": "^2.0.0-beta.98",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
@@ -31,7 +32,8 @@
     "shopify-buy": "^1.7.0",
     "spectrum-icons": "^0.0.2",
     "styled-components": "^3.4.2",
-    "throttle-debounce": "^2.0.1"
+    "throttle-debounce": "^2.0.1",
+    "yup": "^0.26.2"
   },
   "devDependencies": {
     "prettier": "^1.14.2"
