@@ -4,7 +4,11 @@ import StoreContext from '../../context/StoreContext'
 
 export default class extends Component {
   state = {
-    variant: '',
+    // TODO: this isn’t great 🍝
+    variant:
+      this.props.variants.edges.length === 1
+        ? this.props.variants.edges[0].node.id
+        : '',
     quantity: 1,
     errors: {
       variant: '',
@@ -34,7 +38,6 @@ export default class extends Component {
     return errors === {}
   }
 
-
   handleSubmit = callback => e => {
     e.preventDefault()
 
@@ -42,7 +45,6 @@ export default class extends Component {
       callback(this.state.variant, this.state.quantity)
     }
   }
-
 
   render() {
     const { variants } = this.props
@@ -58,11 +60,6 @@ export default class extends Component {
               type="select"
               error={this.state.errors.variant}
             >
-              {variants.edges.length !== 1 && (
-                <option disabled value="">
-                  Choose Size
-                </option>
-              )}
               {variants.edges.map(variant => (
                 <option value={variant.node.id} key={variant.node.id}>
                   {variant.node.title}
