@@ -5,8 +5,8 @@ import Icon from 'spectrum-icons'
 import { SocialLink, Footer, FooterLink } from './style'
 
 export default () => (
-  <Footer p={4} mt={5}>
-    <Box>
+  <Footer px={3} py={4} mt={5}>
+    <Box mb={2}>
       <SocialLink href="https://github.com/hackclub/shop">
         <Icon glyph="github" />
       </SocialLink>
@@ -20,8 +20,6 @@ export default () => (
         <Icon glyph="email" />
       </SocialLink>
     </Box>
-    <br />
-
     <Flex>
       <span>
         Made by{' '}

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { Flex, Link } from '@hackclub/design-system'
 
 export const SocialLink = styled(Link).attrs({
-  target: '_blank'
+  target: '_blank',
+  mx: 2
 })`
   color: ${({ theme }) => theme.colors.slate};
   &:hover {
@@ -11,18 +12,19 @@ export const SocialLink = styled(Link).attrs({
 `
 
 export const Footer = styled(Flex.withComponent('footer'))`
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.slate};
-  background: ${({ theme }) => theme.colors.smoke};
-  box-sizing: border-box;
+  flex-shrink: 0;
 `
+Footer.defaultProps = {
+  flexDirection: 'column',
+  justify: 'center',
+  align: 'center',
+  wrap: true,
+  bg: 'smoke',
+  color: 'slate'
+}
 
 export const FooterLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.slate};
+  color: inherit;
   &:hover {
     text-decoration: underline;
   }
