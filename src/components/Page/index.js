@@ -130,9 +130,7 @@ export default class extends Component {
               }`}
           />
           <Helmet>
-            <title>
-              {this.props.title ? `${this.props.title} — ${name}` : name}
-            </title>
+            <title children={title ? `${title} – ${name}` : name} />
             <html lang="en" />
             <meta charSet="UTF-8" />
             <meta
