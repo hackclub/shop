@@ -142,8 +142,8 @@ export default class extends Component {
             <meta name="format-detection" content="telephone=no" />
             <meta name="theme-color" content="#e42d42" />
             <meta name="description" content={description} />
-            <meta name="twitter:card" content="'summary_large_image" />
-            <meta name="twitter:site" content="'@hackclub" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@hackclub" />
             <meta name="twitter:domain" content={url} />
             <meta name="twitter:title" content={name} />
             <meta name="twitter:description" content={description} />
