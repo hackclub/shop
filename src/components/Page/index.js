@@ -8,8 +8,24 @@ import StoreContext, { defaultStoreContext } from '../../context/StoreContext'
 import Header from '../Header'
 import Transition from '../Transition'
 import Footer from '../Footer'
+import { injectGlobal } from 'styled-components'
 import { ScrollToTop } from './style'
 export { Gradient, SectionHeading } from './style'
+
+injectGlobal`
+  html, body {
+    height: 100%;
+  }
+  body {
+    background: ${cx('snow')};
+    color: ${cx('black')};
+  }
+  #___gatsby > div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+`
 
 export default class extends Component {
   constructor() {
@@ -118,17 +134,12 @@ export default class extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { title, children } = this.props
     const { headerShadow, scrollToTopVisible } = this.state
 
     return (
       <StoreContext.Provider value={this.state.store}>
         <ThemeProvider webfonts>
-          <style
-            children={`body {
-                background: ${cx('snow')};
-              }`}
-          />
           <Helmet>
             <title children={title ? `${title} – ${name}` : name} />
             <html lang="en" />
@@ -158,6 +169,8 @@ export default class extends Component {
           <Container
             px={3}
             pt={[6, null, null, 5]}
+            w={1}
+            style={{ flex: '1 0 auto' }}
           >
             <Transition>{children}</Transition>
             <ScrollToTop
