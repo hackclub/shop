@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Field } from '@hackclub/design-system'
+import { LargeButton, Field } from '@hackclub/design-system'
 import StoreContext from '../../context/StoreContext'
 
 export default class extends Component {
@@ -74,9 +74,13 @@ export default class extends Component {
               type="number"
               error={this.state.errors.quantity}
             />
-            <Button onClick={this.handleSubmit(addVariantToCart)}>
-              Add to cart
-            </Button>
+            <LargeButton
+              onClick={this.handleSubmit(addVariantToCart)}
+              type="submit"
+              mt={3}
+            >
+              Add to Cart
+            </LargeButton>
           </form>
         )}
       </StoreContext.Consumer>
