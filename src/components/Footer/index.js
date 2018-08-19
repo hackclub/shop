@@ -16,6 +16,9 @@ export default () => (
       <SocialLink href="https://www.facebook.com/Hack-Club-741805665870458">
         <Icon glyph="facebook" />
       </SocialLink>
+      <SocialLink href="mailto:shop@hackclub.com">
+        <Icon glyph="email" />
+      </SocialLink>
     </Box>
     <br />
 
