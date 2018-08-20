@@ -29,7 +29,7 @@ export default () => (
         {', '}
         <FooterLink href="https://github.com/zanedb">@zanedb</FooterLink>
         {', + '}
-        <FooterLink href="https://lachlanjc.me">@lachlanjc</FooterLink>
+        <FooterLink href="https://github.com/lachlanjc">@lachlanjc</FooterLink>
       </span>
     </Flex>
   </Footer>
