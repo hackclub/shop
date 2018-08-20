@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text } from '@hackclub/design-system'
+import { Box, Text } from '@hackclub/design-system'
 import { Link } from 'gatsby'
 
 import { SearchProductContainer, Image } from './style'
@@ -14,13 +14,15 @@ export default ({
 }) => (
   <Link to={slug}>
     <SearchProductContainer onClick={clear}>
-      <Image src={image} alt={title} />
-      <Flex flexDirection="column" ml={3}>
-        <Text color="black">{title}</Text>
+      <Image src={image} alt={title} mr={3} />
+      <Box align="left">
+        <Text color="black" bold>
+          {title}
+        </Text>
         <Text color="muted" f={1}>
           ${variants.edges[0].node.price}
         </Text>
-      </Flex>
+      </Box>
     </SearchProductContainer>
   </Link>
 )

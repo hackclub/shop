@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import { Box } from '@hackclub/design-system'
+import { Box, Flex } from '@hackclub/design-system'
 
 export const Container = styled(Box)`
   display: grid;
@@ -15,8 +15,8 @@ export const Container = styled(Box)`
     props.shadow ? props.theme.colors.white : props.theme.colors.snow};
   z-index: 3;
   box-shadow: ${props =>
-  transition: all 0.2s ease-in-out;
     props.shadow ? '0 4px 8px rgba(0,0,0,0.125)' : 'none'};
+  transition: ${({ theme }) => theme.transition} all;
   @media (max-width: 1024px) {
     padding: 8px 16px;
     grid-template-columns: 1fr 1fr;
@@ -48,11 +48,9 @@ export const Logo = styled(Link)`
     `};
 `
 
-export const ButtonRowContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+export const ButtonRowContainer = styled(Flex).attrs({
+  align: 'center',
+  justify: 'flex-end'
+})`
   grid-area: actions;
-  align-items: center;
-  @media (max-width: 968px) {
-  }
 `
