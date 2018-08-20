@@ -59,7 +59,7 @@ export const Hits = styled(Flex).attrs({
   width: 1
 })`
   position: absolute;
-  top: 64px;
+  top: ${({ theme }) => theme.space[5]}px;
   left: 50%;
   transform: translateX(-50%);
   background: ${({ theme }) => theme.colors.white} none repeat scroll 0% 0%;

@@ -5,11 +5,10 @@ export const Grid = styled(Box)`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 'content' 'sidebar';
-  grid-gap: ${({ theme }) => theme.space[3]}px;
+  grid-gap: ${({ theme }) => theme.space[5]}px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     grid-template-columns: 20rem 1fr;
-    grid-gap: ${({ theme }) => theme.space[5]}px;
     grid-template-rows: auto;
     grid-template-areas: 'sidebar content';
   }
@@ -63,11 +62,12 @@ export const Divider = styled(Box)`
   margin-top: 48px;
 `
 
-export const Label = styled.span`
+export const Label = styled(Text.span).attrs({
+  f: 2,
+  bg: 'snow',
+  color: 'slate'
+})`
   position: relative;
   top: -13px;
-  background: ${({ theme }) => theme.colors.snow};
   padding: 2px 16px 2px 0;
-  font-size: ${({ theme }) => theme.fontSizes[2]}px;
-  color: ${({ theme }) => theme.colors.slate};
 `
