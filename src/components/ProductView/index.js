@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Text } from '@hackclub/design-system'
 
 import {
   Grid,
