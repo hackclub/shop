@@ -23,14 +23,13 @@ export default () => (
     <Flex>
       <span>
         Made by{' '}
-        <FooterLink bold href="https://github.com/merelinguist">
+        <FooterLink href="https://github.com/merelinguist">
           @merelinguist
         </FooterLink>
-        {','}
-        &nbsp;
-        <FooterLink bold href="https://github.com/zanedb">
-          @zanedb
-        </FooterLink>
+        {', '}
+        <FooterLink href="https://github.com/zanedb">@zanedb</FooterLink>
+        {', + '}
+        <FooterLink href="https://lachlanjc.me">@lachlanjc</FooterLink>
       </span>
     </Flex>
   </Footer>

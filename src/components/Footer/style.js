@@ -23,8 +23,11 @@ Footer.defaultProps = {
   color: 'slate'
 }
 
-export const FooterLink = styled(Link)`
-  color: inherit;
+export const FooterLink = styled(Link).attrs({
+  target: '_blank',
+  color: 'inherit',
+  bold: true
+})`
   &:hover {
     text-decoration: underline;
   }
