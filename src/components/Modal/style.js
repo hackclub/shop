@@ -34,8 +34,7 @@ export const Modal = styled(Card).attrs({
   width: ${props => props.w || props.width || '36rem'};
   max-width: 95vw;
   max-height: 95vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
