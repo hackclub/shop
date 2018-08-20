@@ -15,8 +15,8 @@ export const Container = styled(Box)`
     props.shadow ? props.theme.colors.white : props.theme.colors.snow};
   z-index: 3;
   box-shadow: ${props =>
-    props.shadow ? '0 4px 8px rgba(0,0,0,0.04)' : 'none'};
   transition: all 0.2s ease-in-out;
+    props.shadow ? '0 4px 8px rgba(0,0,0,0.125)' : 'none'};
   @media (max-width: 1024px) {
     padding: 8px 16px;
     grid-template-columns: 1fr 1fr;
