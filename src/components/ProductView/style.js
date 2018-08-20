@@ -1,15 +1,15 @@
 import styled from 'styled-components'
-import { Box, Heading } from '@hackclub/design-system'
+import { Box, Text, Heading } from '@hackclub/design-system'
 
 export const Grid = styled(Box)`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 'content' 'sidebar';
-  grid-gap: 16px;
+  grid-gap: ${({ theme }) => theme.space[3]}px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     grid-template-columns: 20rem 1fr;
-    grid-gap: 64px;
+    grid-gap: ${({ theme }) => theme.space[5]}px;
     grid-template-rows: auto;
     grid-template-areas: 'sidebar content';
   }
@@ -21,21 +21,38 @@ export const Sidebar = styled(Box)`
 
 export const Content = styled(Box)`
   grid-area: content;
+
+  input {
+    background-color: ${({ theme }) => theme.colors.white};
+  }
 `
 
 export const Title = styled(Heading.h1).attrs({
-  f: 5,
-  color: 'black'
-})`
-  letter-spacing: 0.8px;
-`
+  f: 6,
+  mt: 0,
+  mb: 1
+})``
 
 export const Description = styled(Heading.h2).attrs({
-  f: 3,
+  f: 4,
   regular: true,
+  color: 'slate'
+})``
+
+export const Price = styled(Text).attrs({
+  f: 5,
+  mt: 2,
+  mb: 3,
   color: 'muted'
 })`
-  line-height: 1.4rem;
+  text-indent: -4px;
+  &:before {
+    content: '$';
+    display: inline-block;
+    font-size: ${({ theme }) => theme.fontSizes[2]}px;
+    vertical-align: text-top;
+    width: 4px;
+  }
 `
 
 export const Divider = styled(Box)`
@@ -51,7 +68,6 @@ export const Label = styled.span`
   top: -13px;
   background: ${({ theme }) => theme.colors.snow};
   padding: 2px 16px 2px 0;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSizes[2]}px;
   color: ${({ theme }) => theme.colors.slate};
 `

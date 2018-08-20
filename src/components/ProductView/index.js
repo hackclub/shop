@@ -8,6 +8,7 @@ import {
   Content,
   Title,
   Description,
+  Price,
   Divider,
   Label
 } from './style'
@@ -31,24 +32,21 @@ export default ({
       <Link to={slug}>
         <ProductImage src={image} alt={title} />
       </Link>
-      <Divider>
-        <Label>Designed By</Label>
-      </Divider>
-      {tags ? (
-        <DesignersGrid designers={tags} />
-      ) : (
-        <Label>Designers unavailable.</Label>
+      <ProductShareButtons slug={slug} />
+      {tags && (
+        <>
+          <Divider>
+            <Label>Designed By</Label>
+          </Divider>
+          {tags && <DesignersGrid designers={tags} />}
+        </>
       )}
     </Sidebar>
 
     <Content>
       <Title>{title}</Title>
       <Description>{descriptionHtml}</Description>
-      <Text f={4} pt={2} color="muted">
-        ${variants.edges[0].node.price}
-      </Text>
-
-      <ProductShareButtons slug={slug} />
+      <Price>{variants.edges[0].node.price}</Price>
       <AddToCart variants={variants} />
     </Content>
   </Grid>

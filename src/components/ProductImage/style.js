@@ -8,7 +8,7 @@ export const BlurredArt = styled(Img)`
   height: 106.25%;
   left: -3.125%;
   filter: blur(12px);
-  opacity: 0.5;
+  opacity: 0.375;
   z-index: 1;
 
   /* there are some problems with blurring images on mobile devices and perf */
