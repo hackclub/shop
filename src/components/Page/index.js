@@ -8,8 +8,8 @@ import StoreContext, { defaultStoreContext } from '../../context/StoreContext'
 import Header from '../Header'
 import Transition from '../Transition'
 import Footer from '../Footer'
+import ScrollToTop from './ScrollToTop'
 import { injectGlobal } from 'styled-components'
-import { ScrollToTop } from './style'
 export { Gradient, SectionHeading } from './style'
 
 injectGlobal`
@@ -176,8 +176,6 @@ export default class extends Component {
             <ScrollToTop
               isVisible={scrollToTopVisible}
               onClick={this.scrollToTop}
-              name="keyboard_arrow_up"
-              size={32}
             />
           </Container>
           <Footer />
