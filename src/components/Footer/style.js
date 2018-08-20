@@ -2,27 +2,32 @@ import styled from 'styled-components'
 import { Flex, Link } from '@hackclub/design-system'
 
 export const SocialLink = styled(Link).attrs({
-  target: '_blank'
+  target: '_blank',
+  mx: 2
 })`
-  color: ${props => props.theme.colors.slate};
+  color: ${({ theme }) => theme.colors.slate};
   &:hover {
-    color: ${props => props.theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
   }
 `
 
 export const Footer = styled(Flex.withComponent('footer'))`
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: center;
-  color: ${props => props.theme.colors.slate};
-  background: ${props => props.theme.colors.smoke};
-  box-sizing: border-box;
+  flex-shrink: 0;
 `
+Footer.defaultProps = {
+  flexDirection: 'column',
+  justify: 'center',
+  align: 'center',
+  wrap: true,
+  bg: 'smoke',
+  color: 'slate'
+}
 
-export const FooterLink = styled(Link)`
-  color: ${props => props.theme.colors.slate};
+export const FooterLink = styled(Link).attrs({
+  target: '_blank',
+  color: 'inherit',
+  bold: true
+})`
   &:hover {
     text-decoration: underline;
   }

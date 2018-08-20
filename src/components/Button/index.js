@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { Button, Icon, Text } from '@hackclub/design-system'
+import { Button, Text } from '@hackclub/design-system'
+import Icon from 'spectrum-icons'
 import styled from 'styled-components'
 import Clipboard from 'react-clipboard.js'
 
-const IconButton = ({ is = Button, name, size = 24, children, ...props }) => {
+const IconButton = ({ is = Button, glyph, size = 24, children, ...props }) => {
   const Component = styled(is)`
     display: inline-flex;
     align-items: center;
   `
   return (
     <Component {...props}>
-      <Icon color="inherit" name={name} size={size} />
+      <Icon glyph={glyph} size={size} />
       {children && <Text.span ml={1} children={children} />}
     </Component>
   )
@@ -23,10 +24,7 @@ export class CopyLinkButton extends Component {
 
   onClick = () => {
     this.setState({ isClicked: true })
-
-    const ref = setTimeout(() => {
-      return this.setState({ isClicked: false })
-    }, 2000)
+    const ref = setTimeout(() => this.setState({ isClicked: false }), 2000)
     this.ref = ref
   }
 
@@ -39,13 +37,14 @@ export class CopyLinkButton extends Component {
         style={{ background: 'none' }}
         data-clipboard-text={text}
         onSuccess={this.onClick}
-        component="a"
+        component="span"
       >
         <IconButton
           disabled={isClicked}
           bg="slate"
-          name="content_copy"
+          glyph="link"
           children={isClicked ? 'Copied!' : children}
+          f={2}
         />
       </Clipboard>
     )

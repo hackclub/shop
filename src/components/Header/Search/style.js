@@ -1,117 +1,104 @@
-import styled from 'styled-components'
-import { hexa } from '@hackclub/design-system'
+import styled, { css } from 'styled-components'
+import { Box, Flex, Input } from '@hackclub/design-system'
 
-export const Container = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+export const Container = styled(Flex).attrs({
+  align: 'center',
+  justify: 'center',
+  pt: [1, null, 0]
+})`
   grid-area: search;
-  @media (max-width: 968px) {
-    padding-top: 8px;
-  }
+  flex: 1 0 auto;
+  position: relative;
 `
 
-export const SearchInput = styled.input`
-  font-family: inherit;
-  border: 0px none;
-  outline: currentcolor none 0px;
-  -moz-appearance: none;
-  border-radius: 4px !important;
+const placeholder = css`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.muted};
+`
+export const SearchInput = styled(Input)`
+  border: 0;
+  line-height: 2;
+  font-size: ${({ theme }) => theme.fontSizes[2]}px;
   background: ${props =>
-    props.shadow ? props.theme.colors.snow : props.theme.colors.white};
-  color: ${props => props.theme.colors.slate};
-  padding: 12px 16px;
-  width: 100%;
+    props.shadow ? props.theme.colors.gray[1] : props.theme.colors.white};
+  color: ${({ theme }) => theme.colors.slate};
   box-shadow: ${props =>
-    props.shadow ? 'none' : '0 2px 4px rgba(0,0,0,0.04)'};
-  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
-  font-size: 16px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  ::-webkit-input-placeholder {
-    text-align: center;
-  }
+    props.shadow ? 'none' : '0 4px 8px rgba(0,0,0,0.0625)'};
+  border-radius: ${({ theme }) => theme.radii[2]};
+  transition: box-shadow 0.25s ease-in-out, background 0.25s ease-in-out,
+    transform 0.25s ease-in-out;
 
+  // Love our WebKit
   ::-webkit-input-placeholder {
-    text-align: center;
+    ${placeholder};
   }
-
+  // Firefox <18
   :-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
+    ${placeholder};
   }
-
+  // Firefox
   ::-moz-placeholder {
-    /* Firefox 19+ */
-    text-align: center;
+    ${placeholder};
+  }
+  // Thanks Microsoft
+  :-ms-input-placeholder {
+    ${placeholder};
   }
 
-  :-ms-input-placeholder {
-    text-align: center;
-  }
-  &:hover {
-    box-shadow: ${props =>
-      props.shadow ? 'none' : '0 4px 12px rgba(0,0,0,0.1)'};
-    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
+  &:hover,
   &:focus {
-    border-radius: 4px !important;
     box-shadow: ${props =>
-      props.shadow ? 'none' : '0 4px 12px rgba(0,0,0,0.1)'};
-    background: ${props =>
-      props.shadow ? props.theme.colors.smoke : props.theme.colors.white};
-    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  &:active {
-    border-radius: 4px !important;
+      props.shadow
+        ? 'none'
+        : '0 4px 8px rgba(0,0,0,0.0625), 0 8px 16px rgba(0,0,0,0.125)'};
   }
 `
 
-export const Hits = styled.div`
+export const Hits = styled(Flex).attrs({
+  flexDirection: 'column',
+  width: 1
+})`
   position: absolute;
-  top: 64px;
+  top: ${({ theme }) => theme.space[5]}px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  transition: all 0.2s ease-in-out 0s;
-  border-radius: 4px;
+  background: ${({ theme }) => theme.colors.white} none repeat scroll 0% 0%;
+  box-shadow: ${({ theme }) => theme.boxShadows[2]};
+  transition: ${({ theme }) => theme.transition} all;
+  border-radius: ${({ theme }) => theme.radii[2]};
   z-index: 999;
-  display: flex;
-  flex-direction: column;
   flex: 0 0 auto;
   height: auto;
   max-height: 400px;
+  max-width: 39rem;
   overflow-y: scroll;
-  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
 `
 
-export const SearchProductContainer = styled.section`
-  padding: 12px;
-  border-bottom: 1px solid ${props => hexa(props.theme.colors.snow, 0.4)};
-  display: flex;
+export const SearchProductContainer = styled(
+  Flex.withComponent('section')
+).attrs({
+  align: 'center',
+  p: 3,
+  width: 1
+})`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.snow};
   flex: 1 0 auto;
-  width: 100%;
-  align-items: center;
   &:hover {
-    background: ${props => props.theme.colors.snow};
+    background: ${({ theme }) => theme.colors.blue[0]};
+    img {
+      box-shadow: ${({ theme }) => theme.boxShadows[1]};
+      transform: scale(${({ theme }) => theme.scaleFactor});
+    }
   }
 `
 
-export const Image = styled.img`
-  border-radius: 4px;
+export const Image = styled(Box.withComponent('img'))`
+  border-radius: ${({ theme }) => theme.radius};
   width: 40px;
   height: 40px;
   min-width: 40px;
   max-width: 40px;
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transition} all;
 `

@@ -1,21 +1,9 @@
 import styled from 'styled-components'
-import { Box } from '@hackclub/design-system'
+import { Flex } from '@hackclub/design-system'
 
-export const Container = styled(Box)`
-  margin: 32px 0 40px;
-  display: flex;
-  flex-wrap: wrap;
-
-  button {
-    margin-top: 8px;
-    margin-right: 8px;
-  }
-
-  @media (max-width: 400px) {
-    flex-direction: column;
-
-    button {
-      width: 100%;
-    }
-  }
-`
+export const Container = styled(Flex).attrs({
+  align: 'center',
+  justify: 'center',
+  wrap: true,
+  my: [3, 4]
+})``

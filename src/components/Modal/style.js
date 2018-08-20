@@ -15,9 +15,11 @@ export const modalKeyframes = keyframes`
   }
 `
 
-export const Modal = styled(Card)`
-  background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: ${({ theme }) => theme.boxShadows[2]};
+export const Modal = styled(Card).attrs({
+  boxShadowSize: 'lg',
+  bg: 'white'
+})`
+  border-radius: ${({ theme }) => theme.radii[2]};
   position: fixed;
   top: 50%;
   left: 50%;
@@ -32,8 +34,7 @@ export const Modal = styled(Card)`
   width: ${props => props.w || props.width || '36rem'};
   max-width: 95vw;
   max-height: 95vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 

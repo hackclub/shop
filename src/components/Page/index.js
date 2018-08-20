@@ -8,8 +8,24 @@ import StoreContext, { defaultStoreContext } from '../../context/StoreContext'
 import Header from '../Header'
 import Transition from '../Transition'
 import Footer from '../Footer'
-import { ScrollToTop } from './style'
+import ScrollToTop from './ScrollToTop'
+import { injectGlobal } from 'styled-components'
 export { Gradient, SectionHeading } from './style'
+
+injectGlobal`
+  html, body {
+    height: 100%;
+  }
+  body {
+    background: ${cx('snow')};
+    color: ${cx('black')};
+  }
+  #___gatsby > div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+`
 
 export default class extends Component {
   constructor() {
@@ -118,21 +134,14 @@ export default class extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { title, children } = this.props
     const { headerShadow, scrollToTopVisible } = this.state
 
     return (
       <StoreContext.Provider value={this.state.store}>
         <ThemeProvider webfonts>
-          <style
-            children={`body {
-                background: ${cx('snow')};
-              }`}
-          />
           <Helmet>
-            <title>
-              {this.props.title ? `${this.props.title} — ${name}` : name}
-            </title>
+            <title children={title ? `${title} – ${name}` : name} />
             <html lang="en" />
             <meta charSet="UTF-8" />
             <meta
@@ -142,8 +151,8 @@ export default class extends Component {
             <meta name="format-detection" content="telephone=no" />
             <meta name="theme-color" content="#e42d42" />
             <meta name="description" content={description} />
-            <meta name="twitter:card" content="'summary_large_image" />
-            <meta name="twitter:site" content="'@hackclub" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@hackclub" />
             <meta name="twitter:domain" content={url} />
             <meta name="twitter:title" content={name} />
             <meta name="twitter:description" content={description} />
@@ -157,13 +166,16 @@ export default class extends Component {
             <meta property="og:url" content={url} />
           </Helmet>
           <Header shadow={headerShadow} />
-          <Container px={3} pt={[6, 6, 6, 5]}>
+          <Container
+            px={3}
+            pt={[6, null, null, 5]}
+            w={1}
+            style={{ flex: '1 0 auto' }}
+          >
             <Transition>{children}</Transition>
             <ScrollToTop
               isVisible={scrollToTopVisible}
               onClick={this.scrollToTop}
-              name="keyboard_arrow_up"
-              size={32}
             />
           </Container>
           <Footer />

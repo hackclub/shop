@@ -1,27 +1,25 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import { Box } from '@hackclub/design-system'
+import { Box, Flex } from '@hackclub/design-system'
 
-export const Container = styled(Box)`
+export const Container = styled(Box).attrs({
+  bg: props => (props.shadow ? 'white' : 'snow'),
+  p: 3
+})`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: 'logo search actions';
-  padding: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'logo actions' 'search search';
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: ${props =>
-    props.shadow ? props.theme.colors.white : props.theme.colors.snow};
   z-index: 3;
   box-shadow: ${props =>
-    props.shadow ? '0 4px 8px rgba(0,0,0,0.04)' : 'none'};
-  transition: all 0.2s ease-in-out;
-  @media (max-width: 1024px) {
-    padding: 8px 16px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'logo actions' 'search search';
+    props.shadow ? '0 4px 8px rgba(0,0,0,0.125)' : 'none'};
+  transition: ${({ theme }) => theme.transition} all;
+  ${({ theme }) => theme.mediaQueries.md} {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 'logo search actions';
   }
 `
 
@@ -48,11 +46,9 @@ export const Logo = styled(Link)`
     `};
 `
 
-export const ButtonRowContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
+export const ButtonRowContainer = styled(Flex).attrs({
+  align: 'center',
+  justify: 'flex-end'
+})`
   grid-area: actions;
-  align-items: center;
-  @media (max-width: 968px) {
-  }
 `
