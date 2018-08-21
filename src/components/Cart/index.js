@@ -70,7 +70,7 @@ export default class extends Component {
                             <Flex flexDirection="column" ml={3}>
                               <Text color="black">{item.title}</Text>
                               <Text color="muted" f={1}>
-                                {item.variant.title}, {item.variant.price}
+                                {item.variant.title}, ${item.variant.price}
                               </Text>
                             </Flex>
                             <RemoveButton
