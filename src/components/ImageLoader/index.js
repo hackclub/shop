@@ -1,4 +1,5 @@
 import React from 'react'
+import { cx } from '@hackclub/design-system'
 import ContentLoader from 'react-content-loader'
 
 export default props => (
@@ -6,10 +7,10 @@ export default props => (
     height={320}
     width={320}
     speed={2}
-    primaryColor="#f3f3f3"
-    secondaryColor="#ecebeb"
+    primaryColor={cx('snow')}
+    secondaryColor={cx('smoke')}
     {...props}
   >
-    <rect x="0" y="0" rx="5" ry="5" width="320" height="320" />
+    <rect x="0" y="0" width="400" height="400" />
   </ContentLoader>
 )
