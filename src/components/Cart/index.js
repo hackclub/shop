@@ -1,5 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import { Heading, IconButton, Text, Link, Flex } from '@hackclub/design-system'
+import {
+  Heading,
+  IconButton,
+  LargeButton,
+  Text,
+  Link,
+  Flex
+} from '@hackclub/design-system'
 
 import {
   ProductContainer,
@@ -80,6 +87,13 @@ export default class extends Component {
                             />
                           </ProductContainer>
                         ))}
+                        <LargeButton
+                          mt={2}
+                          style={{ float: 'right' }}
+                          href={checkout.webUrl}
+                        >
+                          Checkout
+                        </LargeButton>
                       </Fragment>
                     )
                   }
