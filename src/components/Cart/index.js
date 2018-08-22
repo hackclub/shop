@@ -58,7 +58,16 @@ export default class extends Component {
           <Fragment>
             <Modal align="left" my={4} p={[3, 4]}>
               <CloseButton onClick={this.toggle} />
-              <Heading.h2 color="black">Your Cart</Heading.h2>
+              <Flex>
+                <Heading.h2 color="black">
+                  Your Cart{' '}
+                  <StoreContext.Consumer>
+                    {({ checkout }) => (
+                      <Badge>{checkout.lineItems.length}</Badge>
+                    )}
+                  </StoreContext.Consumer>
+                </Heading.h2>
+              </Flex>
               <Text f={2} my={3}>
                 The money we charge for swag helps to cover production and
                 shipping costs. Hack Club is a new kind of non-profit with{' '}
@@ -103,7 +112,10 @@ export default class extends Component {
                             <QuantitySelector
                               name="quantity"
                               value={item.quantity}
-                              onChange={this.handleQuantityChange(updateQuantity, item.id)}
+                              onChange={this.handleQuantityChange(
+                                updateQuantity,
+                                item.id
+                              )}
                               label="Quantity"
                               type="number"
                             />
