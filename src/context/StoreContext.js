@@ -15,8 +15,7 @@ export const defaultStoreContext = {
   addVariantToCart: () => {},
   removeLineItem: () => {},
   updateQuantity: () => {},
-  toggleCart: () => {},
-  updateQuantity: () => {}
+  toggleCart: () => {}
 }
 
 export default React.createContext(defaultStoreContext)
