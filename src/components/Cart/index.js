@@ -6,7 +6,8 @@ import {
   Text,
   Link,
   Flex,
-  Box
+  Box,
+  Badge
 } from '@hackclub/design-system'
 
 import {

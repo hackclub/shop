@@ -74,7 +74,6 @@ export default class extends Component {
             client.checkout
               .updateLineItems(checkoutId, [{ id: lineItemId, quantity }])
               .then(res => {
-                console.log(res)
                 this.setState(state => ({
                   store: { ...state.store, checkout: res }
                 }))
