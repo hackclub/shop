@@ -17,7 +17,8 @@ import {
   CartNumber,
   QuantitySelector,
   DeleteButton,
-  CartItemsHeader
+  CartItemsHeader,
+  CartHeader
 } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
@@ -59,16 +60,13 @@ export default class extends Component {
           <Fragment>
             <Modal align="left" my={4} p={[3, 4]}>
               <CloseButton onClick={this.toggle} />
-              <Flex>
-                <Heading.h2 color="black">
-                  Your Cart{' '}
-                  <StoreContext.Consumer>
-                    {({ checkout }) => (
-                      <Badge>{checkout.lineItems.length}</Badge>
-                    )}
-                  </StoreContext.Consumer>
-                </Heading.h2>
-              </Flex>
+              <StoreContext.Consumer>
+                {({ checkout }) => (
+                  <CartHeader>
+                    Your Cart <Badge ml={2}>{checkout.lineItems.length}</Badge>
+                  </CartHeader>
+                )}
+              </StoreContext.Consumer>
               <Text f={2} my={3}>
                 The money we charge for swag helps to cover production and
                 shipping costs. Hack Club is a new kind of non-profit with{' '}

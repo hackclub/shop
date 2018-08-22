@@ -1,6 +1,12 @@
 import styled from 'styled-components'
-import { Badge, Box, Field, Flex } from '@hackclub/design-system'
+import { Badge, Box, Field, Flex, Heading } from '@hackclub/design-system'
 import Icon from 'spectrum-icons'
+
+export const CartHeader = styled(Flex.withComponent(Heading.h2)).attrs({
+  color: 'black'
+})`
+  align-items: center;
+`
 
 export const CartItemsHeader = styled(Flex).attrs({ mb: 2, align: 'baseline' })`
   p {
