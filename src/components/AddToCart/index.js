@@ -48,6 +48,7 @@ export default class extends Component {
 
   render() {
     const { variants } = this.props
+    console.log(this.state)
     return (
       <StoreContext.Consumer>
         {({ addVariantToCart }) => (

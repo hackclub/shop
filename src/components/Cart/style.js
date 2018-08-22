@@ -1,32 +1,38 @@
 import styled from 'styled-components'
-import { Badge, Box, IconButton } from '@hackclub/design-system'
+import { Badge, Box, Field, Flex } from '@hackclub/design-system'
+import Icon from 'spectrum-icons'
 
-export const ProductContainer = styled.section`
-  padding: 12px;
-  display: flex;
-  flex: 1 0 auto;
-  width: 100%;
+export const CartItemsHeader = styled(Flex).attrs({ mb: 2, align: 'baseline' })`
+  p {
+    width: 64px;
+    text-align: center;
+  }
+  h3 {
+    flex: 1 1 auto;
+  }
+`
+
+export const ProductContainer = styled(Flex).attrs({ mb: 1, width: 1 })`
   align-items: center;
-  &:hover {
-    background: ${({ theme }) => theme.colors.snow};
+  label {
+    margin-bottom: 0;
+    div {
+      display: none;
+    }
   }
 `
 
 export const Thumbnail = styled.img`
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.radius};
   width: 40px;
   height: 40px;
   min-width: 40px;
   max-width: 40px;
 `
 
-export const RemoveButton = styled(IconButton)`
-  margin-left: auto;
-`
-
 export const CartContainer = styled(Box)`
   position: relative;
-  margin-bottom: ${({theme}) => theme.space[3]}px;
+  margin-bottom: ${({ theme }) => theme.space[3]}px;
 `
 
 export const CartNumber = styled(Badge)`
@@ -35,4 +41,16 @@ export const CartNumber = styled(Badge)`
   position: absolute;
   right: -2px;
   bottom: -8px;
+`
+
+export const QuantitySelector = styled(Field).attrs({ mr: 2 })`
+  max-width: 64px;
+`
+
+export const DeleteButton = styled(Box.withComponent(Icon)).attrs({
+  role: 'button',
+  color: 'muted',
+  width: '64px'
+})`
+  cursor: pointer;
 `

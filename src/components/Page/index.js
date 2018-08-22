@@ -67,7 +67,20 @@ export default class extends Component {
               }))
             })
         },
-        // updateQuantity: (lineItemID, quantity) => {},
+        updateQuantity: (client, checkoutID, lineItemID, quantity) => {
+          if (quantity > 0) {
+            // NOT WORKING, see console
+            console.log(quantity)
+            client.checkout
+              .updateLineItems(checkoutID, [{ id: lineItemID, quantity }])
+              .then(res => {
+                console.log(res)
+                this.setState(state => ({
+                  store: { ...state.store, checkout: res }
+                }))
+              })
+          }
+        },
         toggleCart: () => {
           this.setState(state => ({
             store: { ...state.store, isCartOpen: !state.store.isCartOpen },

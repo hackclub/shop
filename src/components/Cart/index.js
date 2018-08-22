@@ -5,15 +5,18 @@ import {
   LargeButton,
   Text,
   Link,
-  Flex
+  Flex,
+  Box
 } from '@hackclub/design-system'
 
 import {
   ProductContainer,
   Thumbnail,
-  RemoveButton,
   CartContainer,
-  CartNumber
+  CartNumber,
+  QuantitySelector,
+  DeleteButton,
+  CartItemsHeader
 } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
@@ -60,35 +63,56 @@ export default class extends Component {
                 , including in our financials.
               </Text>
               <StoreContext.Consumer>
-                {({ client, checkout, removeLineItem }) => {
+                {({ client, checkout, removeLineItem, updateQuantity }) => {
                   const handleRemove = id => event => {
                     event.preventDefault()
                     removeLineItem(client, checkout.id, id)
                   }
+                  const handleQuantityChange = id => event => {
+                    event.preventDefault()
+                    updateQuantity(client, checkout.id, id, event.target.value)
+                  }
                   if (checkout.lineItems.length > 0) {
                     return (
                       <Fragment>
+                        <CartItemsHeader>
+                          <Heading.h3 f={4}>Items</Heading.h3>
+                          <Text color="muted" f={1} mr={2}>
+                            Quantity
+                          </Text>
+                          <Text color="muted" f={1}>
+                            Remove
+                          </Text>
+                        </CartItemsHeader>
                         {checkout.lineItems.map(item => (
                           <ProductContainer>
                             <Thumbnail
                               src={item.variant.image.src}
                               alt={item.variant.title}
                             />
-                            <Flex flexDirection="column" ml={3}>
-                              <Text color="black">{item.title}</Text>
+                            <Box ml={3} mr="auto">
+                              <Text color="black" bold>
+                                {item.title}
+                              </Text>
                               <Text color="muted" f={1}>
                                 {item.variant.title}, ${item.variant.price}
                               </Text>
-                            </Flex>
-                            <RemoveButton
-                              name="close"
-                              color="black"
+                            </Box>
+                            <QuantitySelector
+                              name="quantity"
+                              value={item.quantity}
+                              onChange={handleQuantityChange(item.id)}
+                              label="Quantity"
+                              type="number"
+                            />
+                            <DeleteButton
+                              glyph="delete"
                               onClick={handleRemove(item.id)}
                             />
                           </ProductContainer>
                         ))}
                         <LargeButton
-                          mt={2}
+                          mt={3}
                           style={{ float: 'right' }}
                           href={checkout.webUrl}
                         >
