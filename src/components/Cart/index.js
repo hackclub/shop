@@ -28,6 +28,11 @@ export default class extends Component {
     this.setState(state => ({ active: !state.active }))
   }
 
+  handleQuantityChange = (updateQuantity, id) => e => {
+    e.preventDefault()
+    updateQuantity(id, Math.trunc(e.target.value))
+  }
+
   // Render a modal for shopping cart
   render() {
     const { active } = this.state
@@ -69,11 +74,6 @@ export default class extends Component {
                     removeLineItem(client, checkout.id, id)
                   }
 
-                  const handleQuantityChange = id => e => {
-                    e.preventDefault()
-                    updateQuantity(client, checkout.id, id, Math.trunc(e.target.value))
-                  }
-
                   if (checkout.lineItems.length > 0) {
                     return (
                       <Fragment>
@@ -103,7 +103,7 @@ export default class extends Component {
                             <QuantitySelector
                               name="quantity"
                               value={item.quantity}
-                              onChange={handleQuantityChange(item.id)}
+                              onChange={this.handleQuantityChange(updateQuantity, item.id)}
                               label="Quantity"
                               type="number"
                             />

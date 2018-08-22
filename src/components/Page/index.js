@@ -67,12 +67,12 @@ export default class extends Component {
               }))
             })
         },
-        updateQuantity: (client, checkoutID, lineItemID, quantity) => {
+        updateQuantity: (lineItemId, quantity) => {
           if (quantity > 0) {
-            // NOT WORKING, see console
-            console.log(quantity)
+            const { checkout, client } = this.state.store
+            const checkoutId = checkout.id
             client.checkout
-              .updateLineItems(checkoutID, [{ id: lineItemID, quantity }])
+              .updateLineItems(checkoutId, [{ id: lineItemId, quantity }])
               .then(res => {
                 console.log(res)
                 this.setState(state => ({
