@@ -68,10 +68,12 @@ export default class extends Component {
                     event.preventDefault()
                     removeLineItem(client, checkout.id, id)
                   }
-                  const handleQuantityChange = id => event => {
-                    event.preventDefault()
-                    updateQuantity(client, checkout.id, id, event.target.value)
+
+                  const handleQuantityChange = id => e => {
+                    e.preventDefault()
+                    updateQuantity(client, checkout.id, id, Math.trunc(e.target.value))
                   }
+
                   if (checkout.lineItems.length > 0) {
                     return (
                       <Fragment>
