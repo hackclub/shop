@@ -165,7 +165,7 @@ export default class extends Component {
             <meta
               name="description"
               content={
-                title ? `Buy '${title}' at the Hack Club Store` : description
+                title ? `Buy '${title}' at the Hack Club Shop` : description
               }
             />
             <meta name="twitter:card" content="summary_large_image" />
@@ -178,7 +178,7 @@ export default class extends Component {
             <meta
               name="twitter:description"
               content={
-                title ? `Buy '${title}' at the Hack Club Store` : description
+                title ? `Buy '${title}' at the Hack Club Shop` : description
               }
             />
             <meta name="twitter:image" content={imageUrl ? imageUrl : img} />
@@ -190,7 +190,7 @@ export default class extends Component {
             <meta
               property="og:description"
               content={
-                title ? `Buy '${title}' at the Hack Club Store` : description
+                title ? `Buy '${title}' at the Hack Club Shop` : description
               }
             />
             <meta property="og:image" content={imageUrl ? imageUrl : img} />
