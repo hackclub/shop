@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Badge, Box, Field, Flex, Heading } from '@hackclub/design-system'
+import { Badge, Box, Field, Flex, Heading, Text } from '@hackclub/design-system'
 import Icon from 'spectrum-icons'
 
 export const CartHeader = styled(Flex.withComponent(Heading.h2)).attrs({
@@ -59,4 +59,8 @@ export const DeleteButton = styled(Box.withComponent(Icon)).attrs({
   width: '64px'
 })`
   cursor: pointer;
+`
+
+export const TotalCost = styled(Text).attrs({ mt: 4, f: 4, color: 'muted' })`
+  float: left;
 `

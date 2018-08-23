@@ -18,7 +18,8 @@ import {
   QuantitySelector,
   DeleteButton,
   CartItemsHeader,
-  CartHeader
+  CartHeader,
+  TotalCost
 } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
@@ -105,7 +106,8 @@ export default class extends Component {
                                 {item.title}
                               </Text>
                               <Text color="muted" f={1}>
-                                {item.variant.title}, ${item.variant.price}
+                                {item.variant.title}, $
+                                {item.variant.price * item.quantity}
                               </Text>
                             </Box>
                             <QuantitySelector
@@ -124,6 +126,7 @@ export default class extends Component {
                             />
                           </ProductContainer>
                         ))}
+                        <TotalCost>${checkout.totalPrice}</TotalCost>
                         <LargeButton
                           mt={3}
                           style={{ float: 'right' }}
