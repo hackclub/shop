@@ -61,6 +61,11 @@ export const DeleteButton = styled(Box.withComponent(Icon)).attrs({
   cursor: pointer;
 `
 
-export const TotalCost = styled(Text).attrs({ mt: 4, f: 4, color: 'muted' })`
+export const TotalCost = styled(Text).attrs({
+  mr: 3,
+  mt: 2,
+  f: 4,
+  color: 'muted'
+})`
   float: left;
 `

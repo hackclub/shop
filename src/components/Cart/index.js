@@ -64,7 +64,7 @@ export default class extends Component {
               <StoreContext.Consumer>
                 {({ checkout }) => (
                   <CartHeader>
-                    Your Cart <Badge ml={2}>{checkout.lineItems.length}</Badge>
+                    Your Cart <Badge ml={3}>{checkout.lineItems.length}</Badge>
                   </CartHeader>
                 )}
               </StoreContext.Consumer>
@@ -126,14 +126,12 @@ export default class extends Component {
                             />
                           </ProductContainer>
                         ))}
-                        <TotalCost>${checkout.totalPrice}</TotalCost>
-                        <LargeButton
-                          mt={3}
-                          style={{ float: 'right' }}
-                          href={checkout.webUrl}
-                        >
-                          Checkout
-                        </LargeButton>
+                        <Box mt={3} style={{ float: 'right' }}>
+                          <TotalCost>${checkout.totalPrice}</TotalCost>
+                          <LargeButton href={checkout.webUrl}>
+                            Checkout
+                          </LargeButton>
+                        </Box>
                       </Fragment>
                     )
                   }
