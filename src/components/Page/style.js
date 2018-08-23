@@ -6,7 +6,9 @@ export const SectionHeading = styled(Heading.h1).attrs({
   align: 'center',
   px: 3,
   my: 4
-})`line-height: 1.125;`
+})`
+  line-height: 1.125;
+`
 
 export const Gradient = styled(Box)`
   background-image: linear-gradient(

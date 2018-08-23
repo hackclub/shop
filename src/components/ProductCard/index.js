@@ -4,7 +4,7 @@ import { Box, Heading, Image, Text } from '@hackclub/design-system'
 import FadeIn from 'react-lazyload-fadein'
 import ImageLoader from '../ImageLoader'
 
-import { Item } from './style'
+import { Item, ImageWrapper, ImageSpacer, StyledImage } from './style'
 
 export default ({
   product: {
@@ -17,11 +17,18 @@ export default ({
 }) => (
   <Link to={slug}>
     <Item>
-      <FadeIn>
-        {onload => (
-          <Image src={image} alt={title} onLoad={onload} height={200} />
-        )}
-      </FadeIn>
+      <ImageWrapper style={{ position: 'relative', overflow: 'hidden' }}>
+        <ImageSpacer style={{ width: '100%', paddingBottom: '70%' }} />
+        <FadeIn>
+          {onload => (
+            <StyledImage
+              src={image}
+              alt={title}
+              onLoad={onload}
+            />
+          )}
+        </FadeIn>
+      </div>
       <Box p={3}>
         <Heading.h3 f={[3, 4]} mb={1}>
           {title}

@@ -83,9 +83,9 @@ export default class extends Component {
               onClick={this.handleSubmit(addVariantToCart)}
               type="submit"
               mt={3}
-              bg={ added ? 'success' : 'primary' }
+              bg={added ? 'success' : 'primary'}
             >
-              { added ? 'Added' : 'Add to cart'}
+              {added ? 'Added' : 'Add to cart'}
             </LargeButton>
           </form>
         )}
