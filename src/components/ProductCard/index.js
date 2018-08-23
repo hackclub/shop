@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Box, Heading, Image, Text } from '@hackclub/design-system'
+import { Box, Heading, Text } from '@hackclub/design-system'
 import FadeIn from 'react-lazyload-fadein'
-import ImageLoader from '../ImageLoader'
 
 import { Item, ImageWrapper, ImageSpacer, StyledImage } from './style'
 
@@ -28,7 +27,7 @@ export default ({
             />
           )}
         </FadeIn>
-      </div>
+      </ImageWrapper>
       <Box p={3}>
         <Heading.h3 f={[3, 4]} mb={1}>
           {title}
