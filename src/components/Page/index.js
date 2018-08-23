@@ -68,17 +68,15 @@ export default class extends Component {
             })
         },
         updateQuantity: (lineItemId, quantity) => {
-          if (quantity > 0) {
-            const { checkout, client } = this.state.store
-            const checkoutId = checkout.id
-            client.checkout
-              .updateLineItems(checkoutId, [{ id: lineItemId, quantity }])
-              .then(res => {
-                this.setState(state => ({
-                  store: { ...state.store, checkout: res }
-                }))
-              })
-          }
+          const { checkout, client } = this.state.store
+          const checkoutId = checkout.id
+          client.checkout
+            .updateLineItems(checkoutId, [{ id: lineItemId, quantity }])
+            .then(res => {
+              this.setState(state => ({
+                store: { ...state.store, checkout: res }
+              }))
+            })
         },
         toggleCart: () => {
           this.setState(state => ({
