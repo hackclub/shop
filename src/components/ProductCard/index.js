@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Box, Heading, Text } from '@hackclub/design-system'
-import FadeImage from 'react-fade-image'
+import { Box, Heading, Image, Text } from '@hackclub/design-system'
+import FadeIn from 'react-lazyload-fadein'
 import ImageLoader from '../ImageLoader'
 
 import { Item } from './style'
@@ -17,7 +17,11 @@ export default ({
 }) => (
   <Link to={slug}>
     <Item>
-      <FadeImage width={200} height={200} src={image} alt={title} loaderComponent={<ImageLoader />} />
+      <FadeIn>
+        {onload => (
+          <Image src={image} alt={title} onLoad={onload} height={200} />
+        )}
+      </FadeIn>
       <Box p={3}>
         <Heading.h3 f={[3, 4]} mb={1}>
           {title}
