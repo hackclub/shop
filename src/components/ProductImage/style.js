@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import FadeImage from 'react-fade-image' 
+import { Image } from '@hackclub/design-system'
 
-export const BlurredArt = styled(Img)`
+export const BlurredArt = styled(Image)`
   // there are some problems with blurring images on mobile devices and perf
   display: none;
 
@@ -18,7 +18,7 @@ export const BlurredArt = styled(Img)`
   }
 `
 
-export const Art = styled(Img)`
+export const Art = styled(Image)`
   border-radius: ${({ theme }) => theme.radii[2]};
   width: 100%;
   height: 100%;

@@ -18,7 +18,7 @@ Footer.defaultProps = {
   flexDirection: 'column',
   justify: 'center',
   align: 'center',
-  wrap: true,
+  wrap: 'wrap',
   bg: 'smoke',
   color: 'slate'
 }
