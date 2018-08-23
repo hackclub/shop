@@ -13,7 +13,8 @@ export default class extends Component {
     errors: {
       variant: '',
       quantity: ''
-    }
+    },
+    added: false
   }
 
   handleChange = e => {
@@ -43,11 +44,15 @@ export default class extends Component {
 
     if (this.handleErrors() !== {}) {
       callback(this.state.variant, this.state.quantity)
+      this.setState({
+        added: true
+      })
     }
   }
 
   render() {
     const { variants } = this.props
+    const { added } = this.state
     return (
       <StoreContext.Consumer>
         {({ addVariantToCart }) => (
@@ -78,8 +83,9 @@ export default class extends Component {
               onClick={this.handleSubmit(addVariantToCart)}
               type="submit"
               mt={3}
+              bg={ added ? 'success' : 'primary' }
             >
-              Add to Cart
+              { added ? 'Added' : 'Add to cart'}
             </LargeButton>
           </form>
         )}
