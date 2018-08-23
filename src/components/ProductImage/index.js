@@ -8,7 +8,7 @@ export default ({ src, alt }) => (
   <VisibilitySensor>
     <Card>
       <BlurredArt src={src} alt={alt} />
-      <Art src={src} alt={alt} loader={<ImageLoader />} />
+      <Art src={src} alt={alt} loaderComponent={<ImageLoader />} />
     </Card>
   </VisibilitySensor>
 )

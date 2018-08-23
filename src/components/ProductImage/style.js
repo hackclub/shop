@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Img from 'react-image'
+import FadeImage from 'react-fade-image' 
 
 export const BlurredArt = styled(Img)`
   // there are some problems with blurring images on mobile devices and perf
