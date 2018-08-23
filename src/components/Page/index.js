@@ -146,7 +146,7 @@ export default class extends Component {
   }
 
   render() {
-    const { title, children } = this.props
+    const { title, children, imageUrl } = this.props
     const { headerShadow, scrollToTopVisible } = this.state
 
     return (
@@ -162,17 +162,38 @@ export default class extends Component {
             />
             <meta name="format-detection" content="telephone=no" />
             <meta name="theme-color" content="#e42d42" />
-            <meta name="description" content={description} />
+            <meta
+              name="description"
+              content={
+                title ? `Buy '${title}' at the Hack Club Store` : description
+              }
+            />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@hackclub" />
             <meta name="twitter:domain" content={url} />
-            <meta name="twitter:title" content={name} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={img} />
+            <meta
+              name="twitter:title"
+              content={title ? `${title} – ${name}` : name}
+            />
+            <meta
+              name="twitter:description"
+              content={
+                title ? `Buy '${title}' at the Hack Club Store` : description
+              }
+            />
+            <meta name="twitter:image" content={imageUrl ? imageUrl : img} />
             <meta property="og:site_name" content={name} />
-            <meta property="og:title" content={name} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content={img} />
+            <meta
+              property="og:title"
+              content={title ? `${title} – ${name}` : name}
+            />
+            <meta
+              property="og:description"
+              content={
+                title ? `Buy '${title}' at the Hack Club Store` : description
+              }
+            />
+            <meta property="og:image" content={imageUrl ? imageUrl : img} />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={url} />
