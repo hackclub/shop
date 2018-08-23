@@ -44,7 +44,7 @@ export default ({
 
     <Content>
       <Title>{title}</Title>
-      <Description>{descriptionHtml}</Description>
+      <Description dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
       <Price>{variants.edges[0].node.price}</Price>
       <AddToCart variants={variants} />
     </Content>
