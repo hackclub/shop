@@ -81,4 +81,10 @@ export const ImageGrid = styled(Box)`
 export const SmallImage = styled(Image)`
   border-radius: 8px;
   cursor: pointer;
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transition} all;
+  &:hover {
+    box-shadow: ${({ theme }) => theme.boxShadows[1]};
+    transform: scale(${({ theme }) => theme.scaleFactor});
+  }
 `

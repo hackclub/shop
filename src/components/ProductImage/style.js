@@ -25,4 +25,5 @@ export const Art = styled(Image)`
   margin-bottom: -6px;
   position: relative;
   z-index: 2;
+  cursor: pointer;
 `

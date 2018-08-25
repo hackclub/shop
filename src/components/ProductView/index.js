@@ -54,9 +54,7 @@ export default class extends Component {
     return (
       <Grid my={[4, 5]}>
         <Sidebar>
-          <Link to={slug}>
-            <ProductImage src={image} alt={title} />
-          </Link>
+          <ProductImage src={image} alt={title} onClick={this.openBox} />
           <ImageGrid>
             {images.edges.slice(1).map(image => (
               <Box style={{ position: 'relative' }} mt={3}>
