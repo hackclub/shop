@@ -18,6 +18,7 @@ import {
 import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
 import ProductShareButtons from '../ProductShareButtons'
+import LightBox from './LightBox'
 import AddToCart from '../AddToCart'
 
 export default ({
@@ -38,14 +39,10 @@ export default ({
       </Link>
       <ImageGrid>
         {images.edges.slice(1).map(image => (
-          <Box style={{position: 'relative'}} mt={3}>
+          <Box style={{ position: 'relative' }} mt={3}>
             <FadeIn>
               {onload => (
-                <SmallImage
-                  src={image.node.src}
-                  alt=""
-                  onLoad={onload}
-                />
+                <SmallImage src={image.node.src} alt="" onLoad={onload} />
               )}
             </FadeIn>
           </Box>
@@ -61,6 +58,8 @@ export default ({
         </>
       )}
     </Sidebar>
+
+    <LightBox images={images} />
 
     <Content>
       <Title>{title}</Title>

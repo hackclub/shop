@@ -19,13 +19,7 @@ export default ({
       <ImageWrapper style={{ position: 'relative', overflow: 'hidden' }}>
         <ImageSpacer style={{ width: '100%', paddingBottom: '70%' }} />
         <FadeIn>
-          {onload => (
-            <StyledImage
-              src={image}
-              alt={title}
-              onLoad={onload}
-            />
-          )}
+          {onload => <StyledImage src={image} alt={title} onLoad={onload} />}
         </FadeIn>
       </ImageWrapper>
       <Box p={3}>
