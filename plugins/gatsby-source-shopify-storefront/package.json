@@ -2,7 +2,7 @@
   "name": "gatsby-source-shopify-storefront",
   "dependencies": {
     "babel-runtime": "^6.26.0",
-    "graphql-client": "^2.0.0"
+    "graphql-client": "^2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.3",
