@@ -1,12 +1,15 @@
 import React from 'react'
 
-import Page, { SectionHeading } from '../components/Page'
-import { name } from '../data.json'
+import Page, { SectionHeading, SectionDescription } from '../components/Page'
+import { name, description } from '../data.json'
 import ProductsGrid from '../components/ProductsGrid'
 
 export default () => (
   <Page>
-    <SectionHeading pt={[0, 3]}>{name}</SectionHeading>
+    <SectionHeading>
+      {name}
+      <SectionDescription children={description} />
+    </SectionHeading>
     <ProductsGrid />
   </Page>
 )
