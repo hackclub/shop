@@ -11,7 +11,8 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: ''
+      value: '',
+      open: false
     }
     this.fuse = new Fuse(props.products, { threshold: 0.4, keys })
   }
@@ -32,8 +33,10 @@ export default class extends Component {
           value={this.state.value}
           onChange={this.handleInputChange}
           shadow={shadow}
+          onFocus={() => this.setState({open : true})}
+          onBlur={() => this.setState({open : false})}
         />
-        {results.length > 0 && (
+        {results.length > 0 && this.state.open && (
           <Hits>
             {results.map(product => (
               <SearchResult product={product.node} clear={this.clear} />
