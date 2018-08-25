@@ -23,23 +23,35 @@ import AddToCart from '../AddToCart'
 
 export default class extends Component {
   state = {
-    open: false
+    open: false,
+    photoIndex: 0
   }
 
-  openBox = () => (
+  openBox = image =>
     this.setState({
-      open: true
+      open: true,
+      photoIndex: image
     })
-  )
 
-  closeBox = () => (
+  closeBox = () =>
     this.setState({
       open: false
     })
-  )
+
+  prevImage = () =>
+    this.setState({
+      photoIndex:
+        (this.state.photoIndex - 1) % this.props.product.images.edges.length
+    })
+
+  nextImage = () =>
+    this.setState({
+      photoIndex:
+        (this.state.photoIndex + 1) % this.props.product.images.edges.length
+    })
 
   render() {
-    const { open } = this.state
+    const { open, photoIndex } = this.state
     const {
       product: {
         id,
@@ -53,20 +65,34 @@ export default class extends Component {
     } = this.props
     return (
       <Grid my={[4, 5]}>
+        <LightBox
+          images={images}
+          open={open}
+          photoIndex={photoIndex}
+          closeBox={this.closeBox}
+          prevImage={this.prevImage}
+          nextImage={this.nextImage}
+        />
         <Sidebar>
-          <ProductImage src={image} alt={title} onClick={this.openBox} />
+          <Box onClick={() => this.openBox(0)}>
+            <ProductImage src={image} alt={title} />
+          </Box>
           <ImageGrid>
-            {images.edges.slice(1).map(image => (
+            {images.edges.slice(1).map((image, index) => (
               <Box style={{ position: 'relative' }} mt={3}>
                 <FadeIn>
                   {onload => (
-                    <SmallImage src={image.node.src} alt="" onLoad={onload} onClick={this.openBox} />
+                    <SmallImage
+                      src={image.node.src}
+                      alt=""
+                      onLoad={onload}
+                      onClick={() => this.openBox(index + 1)}
+                    />
                   )}
                 </FadeIn>
               </Box>
             ))}
           </ImageGrid>
-          <LightBox images={images} open={open} openBox={this.openBox} closeBox={this.closeBox} />
           <ProductShareButtons slug={slug} />
           {tags && (
             <>
