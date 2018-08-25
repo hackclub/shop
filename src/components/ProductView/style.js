@@ -80,4 +80,5 @@ export const ImageGrid = styled(Box)`
 
 export const SmallImage = styled(Image)`
   border-radius: 8px;
+  cursor: pointer;
 `

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 
@@ -10,28 +10,19 @@ const images = [
 ]
 
 export default class extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      photoIndex: 0,
-      isOpen: false
-    }
+  state = {
+    photoIndex: 0
   }
 
   render() {
-    const { photoIndex, isOpen } = this.state
-    const { images } = this.props
+    const { photoIndex } = this.state
+    const { images, open } = this.props
 
     const flatImages = images.edges.map(i => i.node.src)
 
     return (
-      <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
-          Open Lightbox
-        </button>
-
-        {isOpen && (
+      <Fragment>
+        {open && (
           <Lightbox
             mainSrc={flatImages[photoIndex]}
             nextSrc={flatImages[(photoIndex + 1) % flatImages.length]}
@@ -40,7 +31,7 @@ export default class extends Component {
                 (photoIndex + flatImages.length - 1) % flatImages.length
               ]
             }
-            onCloseRequest={() => this.setState({ isOpen: false })}
+            onCloseRequest={this.props.closeBox}
             onMovePrevRequest={() =>
               this.setState({
                 photoIndex:
@@ -54,7 +45,7 @@ export default class extends Component {
             }
           />
         )}
-      </div>
+      </Fragment>
     )
   }
 }
