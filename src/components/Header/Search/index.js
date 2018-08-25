@@ -33,16 +33,17 @@ export default class extends Component {
           value={this.state.value}
           onChange={this.handleInputChange}
           shadow={shadow}
-          onFocus={() => this.setState({open : true})}
-          onBlur={() => this.setState({open : false})}
+          onFocus={() => this.setState({ open: true })}
+          onBlur={() => this.setState({ open: false })}
         />
-        {results.length > 0 && this.state.open && (
-          <Hits>
-            {results.map(product => (
-              <SearchResult product={product.node} clear={this.clear} />
-            ))}
-          </Hits>
-        )}
+        {results.length > 0 &&
+          this.state.open && (
+            <Hits>
+              {results.map(product => (
+                <SearchResult product={product.node} clear={this.clear} />
+              ))}
+            </Hits>
+          )}
       </Container>
     )
   }

@@ -80,7 +80,7 @@ export default class extends Component {
           <ImageGrid>
             {images.edges.slice(1).map((image, index) => (
               <Box style={{ position: 'relative' }} mt={3}>
-                <FadeIn height={150} placeholder={<Bouncing/>} debounce={1000}>
+                <FadeIn height={150} placeholder={<Bouncing />} debounce={1000}>
                   {onload => (
                     <SmallImage
                       src={image.node.src}
