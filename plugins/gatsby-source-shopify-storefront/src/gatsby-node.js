@@ -1,19 +1,16 @@
-const crypto = require('crypto');
-const productQuery = require('./product-query');
+const crypto = require('crypto')
+const productQuery = require('./product-query')
 
-exports.sourceNodes = async (
-  { boundActionCreators },
-  { siteName, accessToken }
-) => {
-  const { createNode } = boundActionCreators;
+exports.sourceNodes = async ({ actions }, { siteName, accessToken }) => {
+  const { createNode } = actions
   const client = require('graphql-client')({
     url: `https://${siteName}.myshopify.com/api/graphql`,
     headers: {
       'X-Shopify-Storefront-Access-Token': accessToken
     }
-  });
+  })
 
-  const response = await client.query(productQuery);
+  const response = await client.query(productQuery)
 
   if (
     response &&
@@ -23,8 +20,8 @@ exports.sourceNodes = async (
     response.data.shop.products.edges
   ) {
     response.data.shop.products.edges.forEach(({ node }) => {
-      node.parent = null;
-      node.children = [];
+      node.parent = null
+      node.children = []
       node.internal = {
         mediaType: 'application/json',
         type: 'ShopifyProducts',
@@ -33,11 +30,11 @@ exports.sourceNodes = async (
           .update(JSON.stringify(node))
           .digest('hex'),
         content: JSON.stringify(node)
-      };
+      }
 
-      createNode(node);
-    });
+      createNode(node)
+    })
   }
 
-  return;
-};
+  return
+}
