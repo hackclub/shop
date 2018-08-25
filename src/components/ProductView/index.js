@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Box } from '@hackclub/design-system'
-import { Link } from 'gatsby'
 import FadeIn from 'react-lazyload-fadein'
 
 import {
@@ -41,7 +40,8 @@ export default class extends Component {
   prevImage = () =>
     this.setState({
       photoIndex:
-        (this.state.photoIndex - 1) % this.props.product.images.edges.length
+        (this.state.photoIndex + this.props.product.images.edges.length - 1) %
+        this.props.product.images.edges.length
     })
 
   nextImage = () =>
@@ -54,7 +54,6 @@ export default class extends Component {
     const { open, photoIndex } = this.state
     const {
       product: {
-        id,
         title,
         descriptionHtml,
         tags,
