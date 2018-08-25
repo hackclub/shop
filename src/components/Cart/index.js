@@ -1,12 +1,25 @@
 import React, { Component, Fragment } from 'react'
-import { Heading, IconButton, Text, Link, Flex } from '@hackclub/design-system'
+import {
+  Heading,
+  IconButton,
+  LargeButton,
+  Text,
+  Link,
+  Flex,
+  Box,
+  Badge
+} from '@hackclub/design-system'
 
 import {
   ProductContainer,
   Thumbnail,
-  RemoveButton,
   CartContainer,
-  CartNumber
+  CartNumber,
+  QuantitySelector,
+  DeleteButton,
+  CartItemsHeader,
+  CartHeader,
+  TotalCost
 } from './style'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
@@ -16,6 +29,11 @@ export default class extends Component {
 
   toggle = () => {
     this.setState(state => ({ active: !state.active }))
+  }
+
+  handleQuantityChange = (updateQuantity, id) => e => {
+    e.preventDefault()
+    updateQuantity(id, Math.trunc(e.target.value))
   }
 
   // Render a modal for shopping cart
@@ -43,7 +61,13 @@ export default class extends Component {
           <Fragment>
             <Modal align="left" my={4} p={[3, 4]}>
               <CloseButton onClick={this.toggle} />
-              <Heading.h2 color="black">Your Cart</Heading.h2>
+              <StoreContext.Consumer>
+                {({ checkout }) => (
+                  <CartHeader>
+                    Your Cart <Badge ml={3}>{checkout.lineItems.length}</Badge>
+                  </CartHeader>
+                )}
+              </StoreContext.Consumer>
               <Text f={2} my={3}>
                 The money we charge for swag helps to cover production and
                 shipping costs. Hack Club is a new kind of non-profit with{' '}
@@ -53,33 +77,61 @@ export default class extends Component {
                 , including in our financials.
               </Text>
               <StoreContext.Consumer>
-                {({ client, checkout, removeLineItem }) => {
+                {({ client, checkout, removeLineItem, updateQuantity }) => {
                   const handleRemove = id => event => {
                     event.preventDefault()
                     removeLineItem(client, checkout.id, id)
                   }
+
                   if (checkout.lineItems.length > 0) {
                     return (
                       <Fragment>
+                        <CartItemsHeader>
+                          <Heading.h3 f={4}>Items</Heading.h3>
+                          <Text color="muted" f={1} mr={2}>
+                            Quantity
+                          </Text>
+                          <Text color="muted" f={1}>
+                            Remove
+                          </Text>
+                        </CartItemsHeader>
                         {checkout.lineItems.map(item => (
                           <ProductContainer>
                             <Thumbnail
                               src={item.variant.image.src}
                               alt={item.variant.title}
                             />
-                            <Flex flexDirection="column" ml={3}>
-                              <Text color="black">{item.title}</Text>
-                              <Text color="muted" f={1}>
-                                {item.variant.title}, {item.variant.price}
+                            <Box ml={3} mr="auto">
+                              <Text color="black" bold>
+                                {item.title}
                               </Text>
-                            </Flex>
-                            <RemoveButton
-                              name="close"
-                              color="black"
+                              <Text color="muted" f={1}>
+                                {item.variant.title}, $
+                                {item.variant.price * item.quantity}
+                              </Text>
+                            </Box>
+                            <QuantitySelector
+                              name="quantity"
+                              value={item.quantity}
+                              onChange={this.handleQuantityChange(
+                                updateQuantity,
+                                item.id
+                              )}
+                              label="Quantity"
+                              type="number"
+                            />
+                            <DeleteButton
+                              glyph="delete"
                               onClick={handleRemove(item.id)}
                             />
                           </ProductContainer>
                         ))}
+                        <Box mt={3} style={{ float: 'right' }}>
+                          <TotalCost>${checkout.totalPrice}</TotalCost>
+                          <LargeButton href={checkout.webUrl}>
+                            Checkout
+                          </LargeButton>
+                        </Box>
                       </Fragment>
                     )
                   }

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { Box, Heading, Text } from '@hackclub/design-system'
-import Img from 'react-image'
-import ImageLoader from '../ImageLoader'
+import FadeIn from 'react-lazyload-fadein'
 
-import { Item } from './style'
+import { Item, ImageWrapper, ImageSpacer, StyledImage } from './style'
 
 export default ({
   product: {
@@ -17,7 +16,12 @@ export default ({
 }) => (
   <Link to={slug}>
     <Item>
-      <Img src={image} alt={title} loader={<ImageLoader />} />
+      <ImageWrapper>
+        <ImageSpacer/>
+        <FadeIn>
+          {onload => <StyledImage src={image} alt={title} onLoad={onload} />}
+        </FadeIn>
+      </ImageWrapper>
       <Box p={3}>
         <Heading.h3 f={[3, 4]} mb={1}>
           {title}

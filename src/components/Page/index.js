@@ -10,7 +10,7 @@ import Transition from '../Transition'
 import Footer from '../Footer'
 import ScrollToTop from './ScrollToTop'
 import { injectGlobal } from 'styled-components'
-export { Gradient, SectionHeading } from './style'
+export { Gradient, SectionHeading, SectionDescription } from './style'
 
 injectGlobal`
   html, body {
@@ -67,7 +67,17 @@ export default class extends Component {
               }))
             })
         },
-        // updateQuantity: (lineItemID, quantity) => {},
+        updateQuantity: (lineItemId, quantity) => {
+          const { checkout, client } = this.state.store
+          const checkoutId = checkout.id
+          client.checkout
+            .updateLineItems(checkoutId, [{ id: lineItemId, quantity }])
+            .then(res => {
+              this.setState(state => ({
+                store: { ...state.store, checkout: res }
+              }))
+            })
+        },
         toggleCart: () => {
           this.setState(state => ({
             store: { ...state.store, isCartOpen: !state.store.isCartOpen },
@@ -134,14 +144,18 @@ export default class extends Component {
   }
 
   render() {
-    const { title, children } = this.props
+    const { title, children, imageUrl } = this.props
     const { headerShadow, scrollToTopVisible } = this.state
+    const pageDescription = title
+      ? `Buy ${title} at the Hack Club Shop`
+      : description
+    const pageTitle = title ? `${title} – ${name}` : name
 
     return (
       <StoreContext.Provider value={this.state.store}>
         <ThemeProvider webfonts>
           <Helmet>
-            <title children={title ? `${title} – ${name}` : name} />
+            <title children={pageTitle} />
             <html lang="en" />
             <meta charSet="UTF-8" />
             <meta
@@ -150,17 +164,17 @@ export default class extends Component {
             />
             <meta name="format-detection" content="telephone=no" />
             <meta name="theme-color" content="#e42d42" />
-            <meta name="description" content={description} />
+            <meta name="description" content={pageDescription} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@hackclub" />
             <meta name="twitter:domain" content={url} />
-            <meta name="twitter:title" content={name} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={img} />
+            <meta name="twitter:title" content={pageTitle} />
+            <meta name="twitter:description" content={pageDescription} />
+            <meta name="twitter:image" content={imageUrl ? imageUrl : img} />
             <meta property="og:site_name" content={name} />
-            <meta property="og:title" content={name} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content={img} />
+            <meta property="og:title" content={pageTitle} />
+            <meta property="og:description" content={pageDescription} />
+            <meta property="og:image" content={imageUrl ? imageUrl : img} />
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content={url} />

@@ -5,7 +5,7 @@ import Page from '../components/Page'
 import ProductView from '../components/ProductView'
 
 export default ({ data: { shopifyProducts } }) => (
-  <Page title={shopifyProducts.title}>
+  <Page title={shopifyProducts.title} imageUrl={shopifyProducts.fields.image}>
     <ProductView product={shopifyProducts} />
   </Page>
 )
@@ -16,6 +16,14 @@ export const query = graphql`
       id
       title
       descriptionHtml
+      images {
+        edges {
+          node {
+            id
+            src
+          }
+        }
+      }
       variants {
         edges {
           node {

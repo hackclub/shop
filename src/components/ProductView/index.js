@@ -1,52 +1,116 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { Component } from 'react'
+import { Box } from '@hackclub/design-system'
+import FadeIn from 'react-lazyload-fadein'
 
 import {
   Grid,
+  ImageGrid,
+  SmallImage,
   Sidebar,
   Content,
   Title,
   Description,
   Price,
   Divider,
-  Label
+  Label,
+  Bouncing
 } from './style'
 import ProductImage from '../ProductImage'
 import DesignersGrid from '../DesignersGrid'
 import ProductShareButtons from '../ProductShareButtons'
+import LightBox from './LightBox'
 import AddToCart from '../AddToCart'
 
-export default ({
-  product: {
-    id,
-    title,
-    descriptionHtml,
-    tags,
-    variants,
-    fields: { slug, image }
+export default class extends Component {
+  state = {
+    open: false,
+    photoIndex: 0
   }
-}) => (
-  <Grid my={[4, 5]}>
-    <Sidebar>
-      <Link to={slug}>
-        <ProductImage src={image} alt={title} />
-      </Link>
-      <ProductShareButtons slug={slug} />
-      {tags && (
-        <>
-          <Divider>
-            <Label>Designed By</Label>
-          </Divider>
-          {tags && <DesignersGrid designers={tags} />}
-        </>
-      )}
-    </Sidebar>
 
-    <Content>
-      <Title>{title}</Title>
-      <Description>{descriptionHtml}</Description>
-      <Price>{variants.edges[0].node.price}</Price>
-      <AddToCart variants={variants} />
-    </Content>
-  </Grid>
-)
+  openBox = image =>
+    this.setState({
+      open: true,
+      photoIndex: image
+    })
+
+  closeBox = () =>
+    this.setState({
+      open: false
+    })
+
+  prevImage = () =>
+    this.setState({
+      photoIndex:
+        (this.state.photoIndex + this.props.product.images.edges.length - 1) %
+        this.props.product.images.edges.length
+    })
+
+  nextImage = () =>
+    this.setState({
+      photoIndex:
+        (this.state.photoIndex + 1) % this.props.product.images.edges.length
+    })
+
+  render() {
+    const { open, photoIndex } = this.state
+    const {
+      product: {
+        title,
+        descriptionHtml,
+        tags,
+        variants,
+        images,
+        fields: { slug, image }
+      }
+    } = this.props
+    return (
+      <Grid my={[4, 5]}>
+        <LightBox
+          images={images}
+          open={open}
+          photoIndex={photoIndex}
+          closeBox={this.closeBox}
+          prevImage={this.prevImage}
+          nextImage={this.nextImage}
+        />
+        <Sidebar>
+          <Box onClick={() => this.openBox(0)}>
+            <ProductImage src={image} alt={title} />
+          </Box>
+          <ImageGrid>
+            {images.edges.slice(1).map((image, index) => (
+              <Box style={{ position: 'relative' }} mt={3}>
+                <FadeIn height={150} placeholder={<Bouncing/>} debounce={1000}>
+                  {onload => (
+                    <SmallImage
+                      src={image.node.src}
+                      alt=""
+                      onLoad={onload}
+                      onClick={() => this.openBox(index + 1)}
+                    />
+                  )}
+                </FadeIn>
+              </Box>
+            ))}
+          </ImageGrid>
+          <ProductShareButtons slug={slug} />
+          {tags && (
+            <>
+              <Divider>
+                <Label>Designed By</Label>
+              </Divider>
+              {tags && <DesignersGrid designers={tags} />}
+            </>
+          )}
+        </Sidebar>
+
+        <Content>
+          <Title>{title}</Title>
+          <Description dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+          <Price>{variants.edges[0].node.price}</Price>
+          <AddToCart variants={variants} />
+        </Content>
+      </Grid>
+    )
+  }
+}

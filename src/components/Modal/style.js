@@ -3,7 +3,7 @@ import { Box, Card } from '@hackclub/design-system'
 
 export const modalKeyframes = keyframes`
   0% {
-    transform: translate(-50%, -50%) scale(0);
+    transform: translate(-5%, -90%) scale(0);
   }
 
   85% {

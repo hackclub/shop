@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { Box, Text, Heading } from '@hackclub/design-system'
+import styled, { keyframes } from 'styled-components'
+import { Box, Flex, Text, Heading, Image } from '@hackclub/design-system'
+import React from 'react'
 
 export const Grid = styled(Box)`
   display: grid;
@@ -71,3 +72,61 @@ export const Label = styled(Text.span).attrs({
   top: -13px;
   padding: 2px 16px 2px 0;
 `
+
+export const ImageGrid = styled(Box)`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 8px;
+`
+
+export const SmallImage = styled(Image)`
+  border-radius: 8px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transition} all;
+  &:hover {
+    box-shadow: ${({ theme }) => theme.boxShadows[1]};
+    transform: scale(${({ theme }) => theme.scaleFactor});
+  }
+`
+
+const bouncingLoader = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem);
+  }
+`
+
+export const StyledBouncing = styled(Flex)`
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 1rem;
+    height: 1rem;
+    margin: 3rem 0.2rem;
+    background: ${({ theme }) => theme.colors.slate};
+    border-radius: 50%;
+    animation: ${bouncingLoader} 0.6s infinite alternate;
+  }
+
+  > div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  > div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+`
+
+export const Bouncing = () => (
+  <StyledBouncing>
+    <div />
+    <div />
+    <div />
+  </StyledBouncing>
+)
