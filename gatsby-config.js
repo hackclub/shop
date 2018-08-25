@@ -4,7 +4,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-source-shopify-storefront',
+      resolve: `${__dirname}/plugins/gatsby-source-shopify-storefront`,
       options: {
         siteName: 'hackclub',
         accessToken: 'ba720b36f1e99b2719bc74ef728ec847'
