@@ -2,6 +2,25 @@
 
 const path = require('path')
 
+// react-image-lightbox expects window to be defined,
+// so we need to load in null during build,
+// which can’t reference globals like window, since it
+// isn’t running in the browser
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-image-lightbox/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}
+
 const toKebabCase = str =>
   str &&
   str
