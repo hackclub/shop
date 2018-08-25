@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Text, Heading } from '@hackclub/design-system'
+import { Box, Text, Heading, Image } from '@hackclub/design-system'
 
 export const Grid = styled(Box)`
   display: grid;
@@ -70,4 +70,14 @@ export const Label = styled(Text.span).attrs({
   position: relative;
   top: -13px;
   padding: 2px 16px 2px 0;
+`
+
+export const ImageGrid = styled(Box)`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 8px;
+`
+
+export const SmallImage = styled(Image)`
+  border-radius: 8px;
 `

@@ -1,8 +1,12 @@
 import React from 'react'
+import { Box } from '@hackclub/design-system'
 import { Link } from 'gatsby'
+import FadeIn from 'react-lazyload-fadein'
 
 import {
   Grid,
+  ImageGrid,
+  SmallImage,
   Sidebar,
   Content,
   Title,
@@ -23,6 +27,7 @@ export default ({
     descriptionHtml,
     tags,
     variants,
+    images,
     fields: { slug, image }
   }
 }) => (
@@ -31,6 +36,21 @@ export default ({
       <Link to={slug}>
         <ProductImage src={image} alt={title} />
       </Link>
+      <ImageGrid>
+        {images.edges.slice(1).map(image => (
+          <Box style={{position: 'relative'}} mt={3}>
+            <FadeIn>
+              {onload => (
+                <SmallImage
+                  src={image.node.src}
+                  alt=""
+                  onLoad={onload}
+                />
+              )}
+            </FadeIn>
+          </Box>
+        ))}
+      </ImageGrid>
       <ProductShareButtons slug={slug} />
       {tags && (
         <>
