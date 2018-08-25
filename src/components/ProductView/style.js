@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { Box, Text, Heading, Image } from '@hackclub/design-system'
+import styled, { keyframes } from 'styled-components'
+import { Box, Flex, Text, Heading, Image } from '@hackclub/design-system'
+import React from 'react'
 
 export const Grid = styled(Box)`
   display: grid;
@@ -88,3 +89,44 @@ export const SmallImage = styled(Image)`
     transform: scale(${({ theme }) => theme.scaleFactor});
   }
 `
+
+const bouncingLoader = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem);
+  }
+`
+
+export const StyledBouncing = styled(Flex)`
+  display: flex;
+  justify-content: center;
+
+  > div {
+    width: 1rem;
+    height: 1rem;
+    margin: 3rem 0.2rem;
+    background: ${({ theme }) => theme.colors.slate};
+    border-radius: 50%;
+    animation: ${bouncingLoader} 0.6s infinite alternate;
+  }
+
+  > div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  > div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+`
+
+export const Bouncing = () => (
+  <StyledBouncing>
+    <div />
+    <div />
+    <div />
+  </StyledBouncing>
+)

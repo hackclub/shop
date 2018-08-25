@@ -16,8 +16,8 @@ export default ({
 }) => (
   <Link to={slug}>
     <Item>
-      <ImageWrapper style={{ position: 'relative', overflow: 'hidden' }}>
-        <ImageSpacer style={{ width: '100%', paddingBottom: '70%' }} />
+      <ImageWrapper>
+        <ImageSpacer/>
         <FadeIn>
           {onload => <StyledImage src={image} alt={title} onLoad={onload} />}
         </FadeIn>
