@@ -17,7 +17,7 @@ export default ({
   <Link to={slug}>
     <Item>
       <ImageWrapper>
-        <ImageSpacer/>
+        <ImageSpacer />
         <FadeIn>
           {onload => <StyledImage src={image} alt={title} onLoad={onload} />}
         </FadeIn>
