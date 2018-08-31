@@ -66,7 +66,7 @@ export default class extends Component {
               <StoreContext.Consumer>
                 {({ checkout }) => (
                   <CartHeader>
-                    Your Cart <Badge ml={3}>{checkout.lineItems.length}</Badge>
+                    Your Bag <Badge ml={3}>{checkout.lineItems.length}</Badge>
                   </CartHeader>
                 )}
               </StoreContext.Consumer>
@@ -140,7 +140,7 @@ export default class extends Component {
                   return (
                     <Flex align="center" justify="center">
                       <Text color="muted" f={4}>
-                        Nothing in your cart.
+                        Nothing in your bag.
                       </Text>
                     </Flex>
                   )
