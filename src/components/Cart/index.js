@@ -20,7 +20,7 @@ import {
   CartHeader,
   TotalCost
 } from './style'
-import IconButton from '../IconButton'
+import IconOnlyButton from '../IconOnlyButton'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -43,10 +43,12 @@ export default class extends Component {
     return (
       <Fragment>
         <CartContainer>
-          <IconButton
+          <IconOnlyButton
             glyph="bag"
-            bg="smoke"
-            color="black"
+            color="slate"
+            size={36}
+            p={0}
+            mt={[-2, null, 0]}
             onClick={this.toggle}
             style={{ float: 'right' }}
             {...this.props}

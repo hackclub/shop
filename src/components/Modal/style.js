@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components'
-import { Box, Card, Button } from '@hackclub/design-system'
-import Icon from '@hackclub/icons'
+import { Box, Card } from '@hackclub/design-system'
 
 export const modalKeyframes = keyframes`
   0% {
@@ -56,13 +55,4 @@ export const Overlayer = styled(Box)`
   left: 0;
   width: 100%;
   height: 100%;
-`
-
-export const BoxIcon = styled(Box.withComponent(Icon))``
-
-export const IconOnlyButton = styled(Button.button)`
-  box-shadow: none !important;
-  line-height: 0 !important;
-  padding: ${({ theme }) => theme.space[3]}px;
-  background: none;
 `

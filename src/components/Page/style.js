@@ -5,7 +5,7 @@ export const SectionHeading = styled(Heading.h1).attrs({
   color: 'black',
   align: 'center',
   px: 3,
-  my: 4,
+  mt: [3, 4],
   pt: [0, 3]
 })`
   line-height: 1.125;
@@ -14,9 +14,9 @@ export const SectionHeading = styled(Heading.h1).attrs({
 export const SectionDescription = styled(Text).attrs({
   f: 3,
   mt: 2,
-  mb: 3,
+  mb: [3, 4],
   color: 'muted',
-  regular: true
+  align: 'center'
 })``
 
 export const Gradient = styled(Box)`

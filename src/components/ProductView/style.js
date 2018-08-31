@@ -31,7 +31,9 @@ export const Title = styled(Heading.h1).attrs({
   f: 6,
   mt: 0,
   mb: 1
-})``
+})`
+  line-height: 1.125;
+`
 
 export const Description = styled(Heading.h2).attrs({
   f: 4,

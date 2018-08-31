@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { LargeButton, Field } from '@hackclub/design-system'
 import StoreContext from '../../context/StoreContext'
+import IconButton from '../IconButton'
 
 export default class extends Component {
   state = {
@@ -79,14 +80,17 @@ export default class extends Component {
               type="number"
               error={this.state.errors.quantity}
             />
-            <LargeButton
+            <IconButton
               onClick={this.handleSubmit(addVariantToCart)}
               type="submit"
               mt={3}
+              size={32}
               bg={added ? 'success' : 'primary'}
+              glyph="bag-add"
+              is={LargeButton}
             >
-              {added ? 'Added' : 'Add to cart'}
-            </LargeButton>
+              {added ? 'Added' : 'Add to Cart'}
+            </IconButton>
           </form>
         )}
       </StoreContext.Consumer>
