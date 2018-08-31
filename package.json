@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/hackclub/shop",
-  "author": "merelinguist <merelinguist@users.noreply.github.com>",
+  "author": "merelinguist <merelinguist@users.noreply.github.com>, zanedb <contact@zane.sh>",
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-10",
+    "@hackclub/icons": "^0.0.1",
     "babel-plugin-styled-components": "^1.5.1",
     "formik": "^1.0.3",
     "fuse.js": "^3.2.1",
     "gatsby": "^2.0.0-beta.98",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.4",
     "gatsby-plugin-styled-components": "^3.0.0-beta.3",
+    "graphql-client": "^2.0.1",
     "react": "^16.4.2",
     "react-clipboard.js": "^2.0.0",
     "react-content-loader": "^3.1.2",
@@ -31,11 +33,9 @@
     "react-transition-group": "^2.4.0",
     "react-visibility-sensor": "^3.11.1",
     "shopify-buy": "^1.7.0",
-    "spectrum-icons": "^0.0.2",
     "styled-components": "^3.4.2",
     "throttle-debounce": "^2.0.1",
-    "yup": "^0.26.2",
-    "graphql-client": "^2.0.1"
+    "yup": "^0.26.2"
   },
   "devDependencies": {
     "prettier": "^1.14.2"

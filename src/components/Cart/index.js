@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {
   Heading,
-  IconButton,
   LargeButton,
   Text,
   Link,
@@ -21,6 +20,7 @@ import {
   CartHeader,
   TotalCost
 } from './style'
+import IconButton from '../IconButton'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -44,7 +44,7 @@ export default class extends Component {
       <Fragment>
         <CartContainer>
           <IconButton
-            name="shopping_cart"
+            glyph="bag"
             bg="smoke"
             color="black"
             onClick={this.toggle}

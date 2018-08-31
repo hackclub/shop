@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { IconButton } from '@hackclub/design-system'
 import ScrollLock from 'react-scrolllock'
+import { IconOnlyButton, BoxIcon } from './style'
 
 import { Modal, Overlayer } from './style'
 
@@ -12,7 +12,10 @@ const Overlay = props => (
 )
 
 const CloseButton = props => (
-  <IconButton name="close" color="muted" circle p={3} {...props} />
+  <IconOnlyButton
+    children={<BoxIcon glyph="view-close" color="muted" />}
+    {...props}
+  />
 )
 
 export { Modal, Overlay, Overlayer, CloseButton }
