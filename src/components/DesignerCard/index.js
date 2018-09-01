@@ -6,7 +6,7 @@ import Card from '../Card'
 
 export default class extends Component {
   render() {
-    const designerInfo = this.props.designer.split(' ')
+    const designerInfo = this.props.designer.split(';')
     const name = designerInfo[0]
     const handle = designerInfo[1]
     const image = designerInfo[2]
