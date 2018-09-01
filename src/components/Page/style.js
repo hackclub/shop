@@ -6,7 +6,7 @@ export const SectionHeading = styled(Heading.h1).attrs({
   align: 'center',
   px: 3,
   mt: [3, 4],
-  pt: [0, 3]
+  pt: [0, 2]
 })`
   line-height: 1.125;
 `

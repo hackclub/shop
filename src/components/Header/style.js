@@ -4,7 +4,7 @@ import { Box, Flex } from '@hackclub/design-system'
 
 export const Container = styled(Box).attrs({
   bg: props => (props.shadow ? 'white' : 'snow'),
-  p: 3
+  p: 2
 })`
   display: grid;
   grid-template-columns: 1fr 1fr;
