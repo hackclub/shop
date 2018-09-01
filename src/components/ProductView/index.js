@@ -94,14 +94,15 @@ export default class extends Component {
             ))}
           </ImageGrid>
           <ProductShareButtons slug={slug} />
-          {tags && (
-            <>
-              <Divider>
-                <Label>Designed By</Label>
-              </Divider>
-              {tags && <DesignersGrid designers={tags} />}
-            </>
-          )}
+          {tags &&
+            tags.length !== 0 && (
+              <>
+                <Divider>
+                  <Label>Designed By</Label>
+                </Divider>
+                <DesignersGrid designers={tags} />
+              </>
+            )}
         </Sidebar>
 
         <Content>
