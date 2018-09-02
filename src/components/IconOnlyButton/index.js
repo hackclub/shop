@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { Button, Box } from '@hackclub/design-system'
 import Icon from '@hackclub/icons'
 
-const BoxIcon = Box.withComponent(Icon)
+const BoxIcon = styled(Box.withComponent(Icon))`
+  pointer-events: none;
+`
 
 const IconOnlyButton = styled(Button.button).attrs({
   children: props => <BoxIcon {...props} />
