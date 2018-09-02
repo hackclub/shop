@@ -56,13 +56,14 @@ export default class extends Component {
     const {
       product: {
         title,
-        descriptionHtml,
+        description,
         tags,
         variants,
         images,
         fields: { slug, image }
       }
     } = this.props
+    const productInfo = JSON.parse(description) // parse product info from JSON
     return (
       <Grid my={[4, 5]}>
         <LightBox
@@ -94,19 +95,22 @@ export default class extends Component {
             ))}
           </ImageGrid>
           <ProductShareButtons slug={slug} />
-          {tags && (
-            <>
-              <Divider>
-                <Label>Designed By</Label>
-              </Divider>
-              {tags && <DesignersGrid designers={tags} />}
-            </>
-          )}
+          {productInfo.designers &&
+            productInfo.designers.length !== 0 && (
+              <>
+                <Divider>
+                  <Label>Designed By</Label>
+                </Divider>
+                <DesignersGrid designers={productInfo.designers} />
+              </>
+            )}
         </Sidebar>
 
         <Content>
           <Title>{title}</Title>
-          <Description dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+          <Description
+            dangerouslySetInnerHTML={{ __html: productInfo.description }}
+          />
           <Price>{variants.edges[0].node.price}</Price>
           <AddToCart variants={variants} />
         </Content>

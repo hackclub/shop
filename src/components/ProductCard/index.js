@@ -27,7 +27,10 @@ export default ({
           {title}
         </Heading.h3>
         <Text f={2} mb={2}>
-          {description}
+          {
+            JSON.parse(description)
+              .description /* parse description from JSON */
+          }
         </Text>
         <Text f={2} color="muted">
           ${variants.edges[0].node.price}
