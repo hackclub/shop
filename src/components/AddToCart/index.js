@@ -52,7 +52,7 @@ export default class extends Component {
   }
 
   render() {
-    const { variants } = this.props
+    const { variants, availableForSale } = this.props
     const { added } = this.state
     return (
       <StoreContext.Consumer>
@@ -81,15 +81,15 @@ export default class extends Component {
               error={this.state.errors.quantity}
             />
             <IconButton
-              onClick={this.handleSubmit(addVariantToCart)}
+              onClick={availableForSale && this.handleSubmit(addVariantToCart)}
               type="submit"
               mt={3}
               size={32}
-              bg={added ? 'success' : 'primary'}
+              bg={availableForSale ? (added ? 'success' : 'primary') : 'muted'}
               glyph="bag-add"
               is={LargeButton}
             >
-              {added ? 'Added' : 'Add to Bag'}
+              {availableForSale ? (added ? 'Added' : 'Add to Bag') : 'Sold Out'}
             </IconButton>
           </form>
         )}

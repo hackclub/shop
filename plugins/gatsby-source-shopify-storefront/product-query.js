@@ -44,6 +44,7 @@ module.exports = `query ProductsQuery {
                 }
               }
             }
+            availableForSale
             description
             descriptionHtml
             productType
@@ -52,4 +53,4 @@ module.exports = `query ProductsQuery {
         }
       }
     }
-  }`;
+  }`
