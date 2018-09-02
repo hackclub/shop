@@ -89,7 +89,11 @@ export default class extends Component {
               glyph="bag-add"
               is={LargeButton}
             >
-              {availableForSale ? (added ? 'Added' : 'Add to Bag') : 'Sold Out'}
+              {availableForSale
+                ? added
+                  ? 'Added'
+                  : 'Add to Bag'
+                : 'Out of Stock'}
             </IconButton>
           </form>
         )}
