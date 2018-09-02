@@ -56,14 +56,14 @@ export default class extends Component {
     const {
       product: {
         title,
-        descriptionHtml,
+        description,
         tags,
         variants,
         images,
         fields: { slug, image }
       }
     } = this.props
-    const productInfo = JSON.parse(descriptionHtml) // parse product info from JSON
+    const productInfo = JSON.parse(description) // parse product info from JSON
     return (
       <Grid my={[4, 5]}>
         <LightBox
