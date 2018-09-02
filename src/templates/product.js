@@ -15,7 +15,7 @@ export const query = graphql`
     shopifyProducts(fields: { slug: { eq: $slug } }) {
       id
       title
-      descriptionHtml
+      description
       tags
       images {
         edges {
