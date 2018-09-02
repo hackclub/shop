@@ -41,11 +41,10 @@ export const CartContainer = styled(Box)`
 `
 
 export const CartNumber = styled(Badge)`
-  ${props => props.children === 0 && { display: 'none' }}
-  border-radius: ${({ theme }) => theme.pill};
+  ${props => props.children === 0 && { display: 'none' }} border-radius: 9999px;
   position: absolute;
-  right: -2px;
-  bottom: -8px;
+  right: 4px;
+  bottom: -2px;
 `
 
 export const QuantitySelector = styled(Field).attrs({ mr: 2 })`
