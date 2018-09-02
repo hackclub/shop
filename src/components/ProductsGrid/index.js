@@ -14,6 +14,7 @@ export default () => (
               id
               title
               description
+              availableForSale
               variants {
                 edges {
                   node {
