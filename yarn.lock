@@ -733,6 +733,12 @@
     styled-components "^3.2.6"
     styled-system "^1.1.4"
 
+"@hackclub/icons@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.1.tgz#9a512e9600d9408bdbd75f8a218f72b887e0cbee"
+  dependencies:
+    react "^16.4.2"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -7930,12 +7936,6 @@ spdy@^3.4.1:
     safe-buffer "^5.0.1"
     select-hose "^2.0.0"
     spdy-transport "^2.0.18"
-
-spectrum-icons@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/spectrum-icons/-/spectrum-icons-0.0.2.tgz#1ae194b2a012ae5b08a8f3a9f63ffa29a6db3e4c"
-  dependencies:
-    react "^16.3.2"
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"

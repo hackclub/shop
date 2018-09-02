@@ -4,7 +4,8 @@ import { Box, Flex } from '@hackclub/design-system'
 
 export const Container = styled(Box).attrs({
   bg: props => (props.shadow ? 'white' : 'snow'),
-  p: 3
+  align: 'center',
+  p: [3, 2]
 })`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -47,8 +48,9 @@ export const Logo = styled(Link)`
 `
 
 export const ButtonRowContainer = styled(Flex).attrs({
-  align: 'center',
-  justify: 'flex-end'
+  justify: 'center',
+  align: 'flex-end',
+  flexDirection: 'column'
 })`
   grid-area: actions;
 `

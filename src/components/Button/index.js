@@ -1,21 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Text } from '@hackclub/design-system'
-import Icon from 'spectrum-icons'
-import styled from 'styled-components'
+import IconButton from '../IconButton'
 import Clipboard from 'react-clipboard.js'
-
-const IconButton = ({ is = Button, glyph, size = 24, children, ...props }) => {
-  const Component = styled(is)`
-    display: inline-flex;
-    align-items: center;
-  `
-  return (
-    <Component {...props}>
-      <Icon glyph={glyph} size={size} />
-      {children && <Text.span ml={1} children={children} />}
-    </Component>
-  )
-}
 
 export class CopyLinkButton extends Component {
   state = {

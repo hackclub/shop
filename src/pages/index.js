@@ -6,10 +6,8 @@ import ProductsGrid from '../components/ProductsGrid'
 
 export default () => (
   <Page>
-    <SectionHeading>
-      {name}
-      <SectionDescription children={description} />
-    </SectionHeading>
+    <SectionHeading children={name} />
+    <SectionDescription children={description} />
     <ProductsGrid />
   </Page>
 )

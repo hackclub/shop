@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Badge, Box, Field, Flex, Heading, Text } from '@hackclub/design-system'
-import Icon from 'spectrum-icons'
+import Icon from '@hackclub/icons'
 
 export const CartHeader = styled(Flex.withComponent(Heading.h2)).attrs({
   color: 'black'
@@ -38,7 +38,6 @@ export const Thumbnail = styled.img`
 
 export const CartContainer = styled(Box)`
   position: relative;
-  margin-bottom: ${({ theme }) => theme.space[3]}px;
 `
 
 export const CartNumber = styled(Badge)`

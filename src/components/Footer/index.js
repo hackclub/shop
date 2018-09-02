@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex } from '@hackclub/design-system'
-import Icon from 'spectrum-icons'
+import Icon from '@hackclub/icons'
 
 import { SocialLink, Footer, FooterLink } from './style'
 

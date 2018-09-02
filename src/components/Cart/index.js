@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {
   Heading,
-  IconButton,
   LargeButton,
   Text,
   Link,
@@ -21,6 +20,7 @@ import {
   CartHeader,
   TotalCost
 } from './style'
+import IconOnlyButton from '../IconOnlyButton'
 import { CloseButton, Modal, Overlay } from '../Modal'
 import StoreContext from '../../context/StoreContext'
 
@@ -43,10 +43,12 @@ export default class extends Component {
     return (
       <Fragment>
         <CartContainer>
-          <IconButton
-            name="shopping_cart"
-            bg="smoke"
-            color="black"
+          <IconOnlyButton
+            glyph="bag"
+            color="slate"
+            size={36}
+            p={0}
+            mt={[-2, null, 0]}
             onClick={this.toggle}
             style={{ float: 'right' }}
             {...this.props}
@@ -64,7 +66,7 @@ export default class extends Component {
               <StoreContext.Consumer>
                 {({ checkout }) => (
                   <CartHeader>
-                    Your Cart <Badge ml={3}>{checkout.lineItems.length}</Badge>
+                    Your Bag <Badge ml={3}>{checkout.lineItems.length}</Badge>
                   </CartHeader>
                 )}
               </StoreContext.Consumer>
@@ -138,7 +140,7 @@ export default class extends Component {
                   return (
                     <Flex align="center" justify="center">
                       <Text color="muted" f={4}>
-                        Nothing in your cart.
+                        Nothing in your bag.
                       </Text>
                     </Flex>
                   )
