@@ -38,7 +38,6 @@ export const Thumbnail = styled.img`
 
 export const CartContainer = styled(Box)`
   position: relative;
-  margin-bottom: ${({ theme }) => theme.space[3]}px;
 `
 
 export const CartNumber = styled(Badge)`
