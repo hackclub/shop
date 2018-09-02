@@ -57,7 +57,6 @@ export default class extends Component {
       product: {
         title,
         description,
-        tags,
         variants,
         images,
         fields: { slug, image }
