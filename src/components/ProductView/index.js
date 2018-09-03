@@ -57,7 +57,7 @@ export default class extends Component {
       product: {
         title,
         description,
-        tags,
+        availableForSale,
         variants,
         images,
         fields: { slug, image }
@@ -112,7 +112,7 @@ export default class extends Component {
             dangerouslySetInnerHTML={{ __html: productInfo.description }}
           />
           <Price>{variants.edges[0].node.price}</Price>
-          <AddToCart variants={variants} />
+          <AddToCart variants={variants} availableForSale={availableForSale} />
         </Content>
       </Grid>
     )

@@ -16,6 +16,7 @@ export const query = graphql`
       id
       title
       description
+      availableForSale
       tags
       images {
         edges {
