@@ -112,7 +112,11 @@ export default class extends Component {
             dangerouslySetInnerHTML={{ __html: productInfo.description }}
           />
           <Price>{variants.edges[0].node.price}</Price>
-          <AddToCart variants={variants} availableForSale={availableForSale} />
+          <AddToCart
+            variants={variants}
+            availableForSale={availableForSale}
+            exists={productInfo.exists}
+          />
         </Content>
       </Grid>
     )
