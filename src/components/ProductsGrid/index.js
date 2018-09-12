@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import { orderBy } from 'lodash'
 
 import { Grid } from './style'
 import ProductCard from '../ProductCard'
@@ -33,9 +34,11 @@ export default () => (
     `}
     render={({ products }) => (
       <Grid>
-        {products.edges.map(({ node: product }) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+        {orderBy(products.edges, [p => p.node.availableForSale], ['desc']).map(
+          ({ node: product }) => (
+            <ProductCard key={product.id} product={product} />
+          )
+        )}
       </Grid>
     )}
   />
