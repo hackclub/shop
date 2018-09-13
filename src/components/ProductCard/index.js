@@ -56,7 +56,7 @@ export default ({
               ? availableForSale
                 ? `$${variants.edges[0].node.price}`
                 : 'Out of Stock'
-              : 'Trial'}
+              : `$${variants.edges[0].node.price}`}
           </Text>
         </Box>
       </Item>
