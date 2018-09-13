@@ -42,8 +42,8 @@ export default class extends Component {
       ) : (
         <>
           <Text f={3} mb={2}>
-            This product is currently out of stock—you can signup to be notified
-            when it’s available.
+            This product is currently out of stock—you can sign up to be
+            notified when it’s available.
           </Text>
           <ProductWaitlistForm
             added={added}
@@ -57,7 +57,7 @@ export default class extends Component {
     ) : (
       <>
         <Text f={3} mb={2}>
-          This product is in trial and hasn’t been produced yet—you can signup
+          This product is in trial and hasn’t been produced yet—you can sign up
           below if you’re interested.
         </Text>
         <ProductWaitlistForm
