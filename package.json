@@ -13,6 +13,7 @@
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-10",
     "@hackclub/icons": "^0.0.1",
+    "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.5.1",
     "formik": "^1.0.3",
     "fuse.js": "^3.2.1",

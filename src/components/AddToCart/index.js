@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
+import axios from 'axios'
 import { LargeButton, Field, Text } from '@hackclub/design-system'
 import StoreContext from '../../context/StoreContext'
 import IconButton from '../IconButton'
+
+const trialProductFieldNames = {
+  product_id: 'entry.410110617',
+  product_name: 'entry.1333192008',
+  email: 'entry.1271490771'
+}
 
 export default class extends Component {
   state = {
@@ -105,7 +112,7 @@ const InStockProduct = ({ added, variants, availableForSale, setAdded }) => (
   </StoreContext.Consumer>
 )
 
-const TrialProduct = ({ added, setAdded }) => (
+const TrialProduct = ({ added, setAdded, id, title }) => (
   <>
     <Text f={3} mb={2}>
       This product is in trial and hasn’t been produced yet—you can signup below
@@ -120,8 +127,15 @@ const TrialProduct = ({ added, setAdded }) => (
           .email()
       })}
       onSubmit={values => {
-        // TODO: SUBMIT DATA
-        setAdded()
+        const gFormPath =
+          'https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSf6eo6fun_tGa_ziJ5s58EHTjU3FW8a3_toVq32b75N54PZMw/formResponse'
+        const formData = new FormData()
+        formData.append(trialProductFieldNames.email, values.email)
+        formData.append(trialProductFieldNames.product_id, id)
+        formData.append(trialProductFieldNames.product_name, title)
+        axios.post(gFormPath, formData).then(_ => {
+          setAdded()
+        })
       }}
     >
       {({ values, errors, handleChange, handleSubmit }) => (

@@ -56,6 +56,7 @@ export default class extends Component {
     const {
       product: {
         title,
+        id,
         description,
         availableForSale,
         variants,
@@ -116,6 +117,8 @@ export default class extends Component {
             variants={variants}
             availableForSale={availableForSale}
             exists={productInfo.exists}
+            title={title}
+            id={id}
           />
         </Content>
       </Grid>
