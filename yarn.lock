@@ -635,17 +635,17 @@
     "@babel/plugin-transform-react-jsx-self" "7.0.0-beta.52"
     "@babel/plugin-transform-react-jsx-source" "7.0.0-beta.52"
 
+"@babel/runtime@7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@babel/runtime@7.0.0-beta.52":
   version "7.0.0-beta.52"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-beta.52.tgz#3f3b42b82b92b4e1a283fc78df1bb2fd4ba8d0c7"
   dependencies:
     core-js "^2.5.7"
-    regenerator-runtime "^0.12.0"
-
-"@babel/runtime@7.0.0-rc.1":
-  version "7.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-rc.1.tgz#42f36fc5817911c89ea75da2b874054922967616"
-  dependencies:
     regenerator-runtime "^0.12.0"
 
 "@babel/template@7.0.0-beta.44":
@@ -8178,9 +8178,9 @@ symbol-observable@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
 
-synchronous-promise@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-1.0.18.tgz#936e8763e6554088cdcf78dc64f7473b972fcefc"
+synchronous-promise@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/synchronous-promise/-/synchronous-promise-2.0.5.tgz#4e0fc8dd3f0062720dcc4cefbd9eae62b40637d8"
 
 table@4.0.2:
   version "4.0.2"
@@ -8991,15 +8991,15 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
-yup@^0.26.2:
-  version "0.26.2"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.26.2.tgz#6dbced6124424bd099a4f310d7eed674c77359fe"
+yup@^0.26.5:
+  version "0.26.5"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.26.5.tgz#f4d963665e30adbc1c96a2298ab12ff060b09bc0"
   dependencies:
-    "@babel/runtime" "7.0.0-rc.1"
+    "@babel/runtime" "7.0.0"
     fn-name "~2.0.1"
     lodash "^4.17.10"
     property-expr "^1.5.0"
-    synchronous-promise "^1.0.18"
+    synchronous-promise "^2.0.5"
     toposort "^2.0.2"
 
 yurnalist@^0.2.1:

@@ -35,7 +35,7 @@
     "shopify-buy": "^1.7.0",
     "styled-components": "^3.4.2",
     "throttle-debounce": "^2.0.1",
-    "yup": "^0.26.2"
+    "yup": "^0.26.5"
   },
   "devDependencies": {
     "prettier": "^1.14.2"
