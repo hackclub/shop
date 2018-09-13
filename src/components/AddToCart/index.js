@@ -33,29 +33,27 @@ export default class extends Component {
     const { exists, availableForSale } = this.props
     const { added } = this.state
     return exists ? (
-      <>
-        {availableForSale ? (
-          <InStockProductForm
+      availableForSale ? (
+        <InStockProductForm
+          added={added}
+          setAdded={this.setAdded}
+          {...this.props}
+        />
+      ) : (
+        <>
+          <Text f={3} mb={2}>
+            This product is currently out of stock—you can signup to be notified
+            when it’s available.
+          </Text>
+          <ProductWaitlistForm
             added={added}
             setAdded={this.setAdded}
+            fieldNames={outOfStockProductFieldNames}
+            gFormPath="https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSdgxusQFFxaRyb8UZzvjsAzQvpgHCWGWWXzFPIGAI8Z4GNu5A/formResponse"
             {...this.props}
           />
-        ) : (
-          <>
-            <Text f={3} mb={2}>
-              This product is currently out of stock—you can signup to be
-              notified when it’s available.
-            </Text>
-            <ProductWaitlistForm
-              added={added}
-              setAdded={this.setAdded}
-              fieldNames={outOfStockProductFieldNames}
-              gFormPath="https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSdgxusQFFxaRyb8UZzvjsAzQvpgHCWGWWXzFPIGAI8Z4GNu5A/formResponse"
-              {...this.props}
-            />
-          </>
-        )}
-      </>
+        </>
+      )
     ) : (
       <>
         <Text f={3} mb={2}>
@@ -163,7 +161,7 @@ const ProductWaitlistForm = ({
       formData.append(fieldNames.email, values.email)
       formData.append(fieldNames.product_id, id)
       formData.append(fieldNames.product_name, title)
-      axios.post(gFormPath, formData).then(_ => {
+      axios.post(gFormPath, formData).then(() => {
         setAdded()
       })
     }}
