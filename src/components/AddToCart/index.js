@@ -3,6 +3,7 @@ import { Formik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { LargeButton, Field, Text } from '@hackclub/design-system'
+import BulkOrderBanner from '../BulkOrderBanner'
 import StoreContext from '../../context/StoreContext'
 import IconButton from '../IconButton'
 
@@ -98,6 +99,7 @@ const InStockProductForm = ({ added, variants, setAdded }) => (
       >
         {({ values, errors, handleChange, handleSubmit }) => (
           <>
+            {values.quantity > 3 && <BulkOrderBanner />}
             {variants.edges.length !== 1 && (
               <Field
                 name="variant"
