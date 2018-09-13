@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import { Box, Heading, Text } from '@hackclub/design-system'
 import FadeIn from 'react-lazyload-fadein'
