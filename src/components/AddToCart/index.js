@@ -12,6 +12,12 @@ const trialProductFieldNames = {
   email: 'entry.1271490771'
 }
 
+const outOfStockProductFieldNames = {
+  product_id: 'entry.510327508',
+  product_name: 'entry.1383558744',
+  email: 'entry.329361203'
+}
+
 export default class extends Component {
   state = {
     added: false
@@ -24,23 +30,51 @@ export default class extends Component {
   }
 
   render() {
-    const { exists } = this.props
+    const { exists, availableForSale } = this.props
     const { added } = this.state
     return exists ? (
-      <InStockProduct added={added} setAdded={this.setAdded} {...this.props} />
+      <>
+        {availableForSale ? (
+          <InStockProductForm
+            added={added}
+            setAdded={this.setAdded}
+            {...this.props}
+          />
+        ) : (
+          <>
+            <Text f={3} mb={2}>
+              This product is currently out of stock—you can signup to be
+              notified when it’s available.
+            </Text>
+            <ProductWaitlistForm
+              added={added}
+              setAdded={this.setAdded}
+              fieldNames={outOfStockProductFieldNames}
+              gFormPath="https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSdgxusQFFxaRyb8UZzvjsAzQvpgHCWGWWXzFPIGAI8Z4GNu5A/formResponse"
+              {...this.props}
+            />
+          </>
+        )}
+      </>
     ) : (
       <>
         <Text f={3} mb={2}>
           This product is in trial and hasn’t been produced yet—you can signup
           below if you’re interested.
         </Text>
-        <TrialProduct added={added} setAdded={this.setAdded} {...this.props} />
+        <ProductWaitlistForm
+          added={added}
+          setAdded={this.setAdded}
+          fieldNames={trialProductFieldNames}
+          gFormPath="https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSf6eo6fun_tGa_ziJ5s58EHTjU3FW8a3_toVq32b75N54PZMw/formResponse"
+          {...this.props}
+        />
       </>
     )
   }
 }
 
-const InStockProduct = ({ added, variants, availableForSale, setAdded }) => (
+const InStockProductForm = ({ added, variants, setAdded }) => (
   <StoreContext.Consumer>
     {({ addVariantToCart }) => (
       <Formik
@@ -91,25 +125,15 @@ const InStockProduct = ({ added, variants, availableForSale, setAdded }) => (
               error={errors.quantity}
             />
             <IconButton
-              onClick={
-                availableForSale
-                  ? added
-                    ? undefined
-                    : handleSubmit
-                  : undefined
-              }
+              onClick={added ? undefined : handleSubmit}
               type="submit"
               mt={3}
               size={32}
-              bg={availableForSale ? (added ? 'success' : 'primary') : 'muted'}
+              bg={added ? 'success' : 'primary'}
               glyph="bag-add"
               is={LargeButton}
             >
-              {availableForSale
-                ? added
-                  ? 'Added'
-                  : 'Add to Bag'
-                : 'Out of Stock'}
+              {added ? 'Added' : 'Add to Bag'}
             </IconButton>
           </>
         )}
@@ -118,7 +142,14 @@ const InStockProduct = ({ added, variants, availableForSale, setAdded }) => (
   </StoreContext.Consumer>
 )
 
-const TrialProduct = ({ added, setAdded, id, title }) => (
+const ProductWaitlistForm = ({
+  added,
+  setAdded,
+  id,
+  title,
+  fieldNames,
+  gFormPath
+}) => (
   <Formik
     initialValues={{ email: '' }}
     validationSchema={yup.object().shape({
@@ -128,12 +159,10 @@ const TrialProduct = ({ added, setAdded, id, title }) => (
         .email()
     })}
     onSubmit={values => {
-      const gFormPath =
-        'https://proxyparty.hackclub.com/docs.google.com/forms/d/e/1FAIpQLSf6eo6fun_tGa_ziJ5s58EHTjU3FW8a3_toVq32b75N54PZMw/formResponse'
       const formData = new FormData()
-      formData.append(trialProductFieldNames.email, values.email)
-      formData.append(trialProductFieldNames.product_id, id)
-      formData.append(trialProductFieldNames.product_name, title)
+      formData.append(fieldNames.email, values.email)
+      formData.append(fieldNames.product_id, id)
+      formData.append(fieldNames.product_name, title)
       axios.post(gFormPath, formData).then(_ => {
         setAdded()
       })
@@ -158,7 +187,7 @@ const TrialProduct = ({ added, setAdded, id, title }) => (
           glyph="bag-add"
           is={LargeButton}
         >
-          {added ? 'Signed up' : 'I’m interested'}
+          {added ? 'Signed Up' : 'Sign Up'}
         </IconButton>
       </>
     )}
