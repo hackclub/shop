@@ -182,7 +182,7 @@ const ProductWaitlistForm = ({
           mt={3}
           size={32}
           bg={added ? 'success' : 'primary'}
-          glyph="bag-add"
+          glyph="email"
           is={LargeButton}
         >
           {added ? 'Signed Up' : 'Sign Up'}
