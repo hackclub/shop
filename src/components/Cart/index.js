@@ -108,8 +108,12 @@ export default class extends Component {
                                 {item.title}
                               </Text>
                               <Text color="muted" f={1}>
-                                {item.variant.title}, $
-                                {item.variant.price * item.quantity}
+                                {item.variant.title !== 'Default Title' &&
+                                  `${item.variant.title},`}{' '}
+                                $
+                                {(item.variant.price * item.quantity).toFixed(
+                                  2
+                                )}
                               </Text>
                             </Box>
                             <QuantitySelector
