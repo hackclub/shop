@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import {
   Heading,
   LargeButton,
@@ -41,7 +41,7 @@ export default class extends Component {
     const { active } = this.state
 
     return (
-      <Fragment>
+      <>
         <CartContainer>
           <IconOnlyButton
             glyph="bag"
@@ -60,7 +60,7 @@ export default class extends Component {
           </StoreContext.Consumer>
         </CartContainer>
         {active && (
-          <Fragment>
+          <>
             <Modal align="left" my={4} p={[3, 4]}>
               <CloseButton onClick={this.toggle} />
               <StoreContext.Consumer>
@@ -87,7 +87,7 @@ export default class extends Component {
 
                   if (checkout.lineItems.length > 0) {
                     return (
-                      <Fragment>
+                      <>
                         <CartItemsHeader>
                           <Heading.h3 f={4}>Items</Heading.h3>
                           <Text color="muted" f={1} mr={2}>
@@ -138,7 +138,7 @@ export default class extends Component {
                             Checkout
                           </LargeButton>
                         </Box>
-                      </Fragment>
+                      </>
                     )
                   }
                   return (
@@ -152,9 +152,9 @@ export default class extends Component {
               </StoreContext.Consumer>
             </Modal>
             <Overlay onClick={this.toggle} />
-          </Fragment>
+          </>
         )}
-      </Fragment>
+      </>
     )
   }
 }
