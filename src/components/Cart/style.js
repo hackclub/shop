@@ -45,6 +45,7 @@ export const CartNumber = styled(Badge)`
   position: absolute;
   right: 4px;
   bottom: -2px;
+  pointer-events: none;
 `
 
 export const QuantitySelector = styled(Field).attrs({ mr: 2 })`
