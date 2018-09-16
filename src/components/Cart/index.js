@@ -132,12 +132,12 @@ export default class extends Component {
                             />
                           </ProductContainer>
                         ))}
-                        <Box mt={3} style={{ float: 'right' }}>
-                          <TotalCost>${checkout.totalPrice}</TotalCost>
+                        <Flex mt={3} justify="flex-end">
+                          <TotalCost>${checkout.subtotalPrice}</TotalCost>
                           <LargeButton href={checkout.webUrl}>
                             Checkout
                           </LargeButton>
-                        </Box>
+                        </Flex>
                       </>
                     )
                   }
