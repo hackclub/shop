@@ -98,7 +98,7 @@ export default class extends Component {
                           </Text>
                         </CartItemsHeader>
                         {checkout.lineItems.map(item => (
-                          <ProductContainer>
+                          <ProductContainer key={item.id}>
                             <Thumbnail
                               src={item.variant.image.src}
                               alt={item.variant.title}
