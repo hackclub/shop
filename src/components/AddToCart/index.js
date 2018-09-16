@@ -6,6 +6,7 @@ import { LargeButton, Field, Text } from '@hackclub/design-system'
 import BulkOrderBanner from '../BulkOrderBanner'
 import StoreContext from '../../context/StoreContext'
 import IconButton from '../IconButton'
+import { Highlight } from './style'
 
 const trialProductFieldNames = {
   product_id: 'entry.410110617',
@@ -42,9 +43,9 @@ export default class extends Component {
         />
       ) : (
         <>
-          <Text f={3} mb={2}>
-            This product is currently out of stock—you can sign up to be
-            notified when it’s available.
+          <Text f={3} mb={3}>
+            This product is <Highlight>currently out of stock</Highlight>
+            —you can sign up to be notified when it’s available.
           </Text>
           <ProductWaitlistForm
             added={added}
@@ -57,9 +58,9 @@ export default class extends Component {
       )
     ) : (
       <>
-        <Text f={3} mb={2}>
-          This product is in trial and hasn’t been produced yet—you can sign up
-          below if you’re interested.
+        <Text f={3} mb={3}>
+          <Highlight>We haven’t made this product yet</Highlight>
+          —sign up below to be notified if we get enough interest to produce it.
         </Text>
         <ProductWaitlistForm
           added={added}
@@ -183,7 +184,7 @@ const ProductWaitlistForm = ({
           onClick={added ? undefined : handleSubmit}
           mt={3}
           size={32}
-          bg={added ? 'success' : 'primary'}
+          bg={added ? 'success' : 'info'}
           glyph="email"
           is={LargeButton}
         >
