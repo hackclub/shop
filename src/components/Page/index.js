@@ -10,7 +10,7 @@ import Transition from '../Transition'
 import Footer from '../Footer'
 import ScrollToTop from './ScrollToTop'
 import { injectGlobal } from 'styled-components'
-export { Gradient, SectionHeading, SectionDescription } from './style'
+export { Gradient, SectionHeading } from './style'
 
 injectGlobal`
   html, body {
