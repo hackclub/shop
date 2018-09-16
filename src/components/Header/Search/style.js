@@ -70,7 +70,7 @@ export const Hits = styled(Flex).attrs({
   flex: 0 0 auto;
   height: auto;
   max-height: 400px;
-  max-width: 39rem;
+  max-width: 32rem;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 `
