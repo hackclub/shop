@@ -34,7 +34,7 @@ export default class extends Component {
           onChange={this.handleInputChange}
           shadow={shadow}
           onFocus={() => this.setState({ open: true })}
-          onBlur={() => this.setState({ open: false })}
+          onBlur={() => setTimeout(() => this.setState({ open: false }), 200)}
         />
         {results.length > 0 &&
           this.state.open && (
