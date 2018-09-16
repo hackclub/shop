@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Box, Heading, Text } from '@hackclub/design-system'
+import { Box, Heading } from '@hackclub/design-system'
 
 export const SectionHeading = styled(Heading.h1).attrs({
   color: 'black',
