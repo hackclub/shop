@@ -4,6 +4,7 @@ import { orderBy } from 'lodash'
 
 import { Grid } from './style'
 import ProductCard from '../ProductCard'
+import EmailSignup from '../EmailSignup'
 
 export default () => (
   <StaticQuery
@@ -39,6 +40,7 @@ export default () => (
             <ProductCard key={product.id} product={product} />
           )
         )}
+        <EmailSignup />
       </Grid>
     )}
   />
