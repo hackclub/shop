@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Link } from 'gatsby'
+import { Link } from '@hackclub/design-system'
 import { Box, Flex } from '@hackclub/design-system'
 
 export const Container = styled(Box).attrs({

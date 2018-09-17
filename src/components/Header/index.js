@@ -7,7 +7,12 @@ import Cart from '../Cart'
 
 export default ({ shadow }) => (
   <Container shadow={shadow}>
-    <Logo shadow={shadow} to="/" aria-label="Homepage" />
+    <Logo
+      shadow={shadow}
+      href="https://hackclub.com"
+      target="_blank"
+      aria-label="Hack Club Homepage"
+    />
     <StaticQuery
       query={graphql`
         query {
