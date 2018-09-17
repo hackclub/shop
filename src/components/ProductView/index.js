@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Box } from '@hackclub/design-system'
+import { Link } from 'gatsby'
 import FadeIn from 'react-lazyload-fadein'
 
 import {
@@ -8,6 +9,7 @@ import {
   SmallImage,
   Sidebar,
   Content,
+  Breadcrumbs,
   Title,
   Description,
   Price,
@@ -108,6 +110,9 @@ export default class extends Component {
         </Sidebar>
 
         <Content>
+          <Breadcrumbs>
+            <Link to="/">All Products ›</Link>
+          </Breadcrumbs>
           <Title>{title}</Title>
           <Description
             dangerouslySetInnerHTML={{ __html: productInfo.description }}

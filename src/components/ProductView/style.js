@@ -27,6 +27,13 @@ export const Content = styled(Box)`
   }
 `
 
+export const Breadcrumbs = styled(Text).attrs({
+  bold: true,
+  caps: true,
+  color: 'slate',
+  f: 3
+})``
+
 export const Title = styled(Heading.h1).attrs({
   f: 6,
   mt: 0,
