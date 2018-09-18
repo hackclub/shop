@@ -31,7 +31,7 @@ export const Breadcrumbs = styled(Text).attrs({
   bold: true,
   caps: true,
   color: 'slate',
-  f: 3
+  f: 4
 })``
 
 export const Title = styled(Heading.h1).attrs({
