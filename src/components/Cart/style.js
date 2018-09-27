@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Badge, Box, Field, Flex, Heading, Text } from '@hackclub/design-system'
-import Icon from '@hackclub/icons'
+import { Badge, Box, Field, Flex, Icon, Text } from '@hackclub/design-system'
 
-export const CartHeader = styled(Flex.withComponent(Heading.h2)).attrs({
+export const CartHeader = styled(Flex).attrs({
+  as: 'h2',
   color: 'black'
 })`
   align-items: center;
@@ -52,7 +52,7 @@ export const QuantitySelector = styled(Field).attrs({ mr: 2 })`
   max-width: 64px;
 `
 
-export const DeleteButton = styled(Box.withComponent(Icon)).attrs({
+export const DeleteButton = styled(Icon).attrs({
   role: 'button',
   color: 'muted',
   width: '64px'

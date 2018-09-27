@@ -1,11 +1,10 @@
 import React from 'react'
-import { Box, Flex } from '@hackclub/design-system'
-import Icon from '@hackclub/icons'
+import { Box, Flex, Icon } from '@hackclub/design-system'
 
 import { SocialLink, Footer, FooterLink } from './style'
 
 export default () => (
-  <Footer px={3} py={4} mt={5}>
+  <Footer>
     <Box mb={2}>
       <SocialLink href="https://github.com/hackclub/shop">
         <Icon glyph="github" />

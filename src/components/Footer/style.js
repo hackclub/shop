@@ -11,17 +11,20 @@ export const SocialLink = styled(Link).attrs({
   }
 `
 
-export const Footer = styled(Flex.withComponent('footer'))`
-  flex-shrink: 0;
-`
-Footer.defaultProps = {
+export const Footer = styled(Flex).attrs({
+  as: 'footer',
   flexDirection: 'column',
   justify: 'center',
   align: 'center',
   wrap: 'wrap',
   bg: 'smoke',
-  color: 'slate'
-}
+  color: 'slate',
+  px: 3,
+  py: 4,
+  mt: 5
+})`
+  flex-shrink: 0;
+`
 
 export const FooterLink = styled(Link).attrs({
   target: '_blank',

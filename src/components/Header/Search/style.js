@@ -75,9 +75,8 @@ export const Hits = styled(Flex).attrs({
   -webkit-overflow-scrolling: touch;
 `
 
-export const SearchProductContainer = styled(
-  Flex.withComponent('section')
-).attrs({
+export const SearchProductContainer = styled(Flex).attrs({
+  as: 'section',
   align: 'center',
   p: 3,
   width: 1

@@ -1,16 +1,12 @@
-import React, { Fragment } from 'react'
+import React, { Component } from 'react'
 import { Transition as ReactTransition } from 'react-transition-group'
 import getTransitionStyle from '../../utils/getTransitionStyle'
 import { historyExitingEventType, timeout } from '../../../gatsby-browser'
 
-class Transition extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { exiting: false }
-    this.listenerHandler = this.listenerHandler.bind(this)
-  }
+class Transition extends Component {
+  state = { exiting: false }
 
-  listenerHandler(event) {
+  listenerHandler = event => {
     this.setState({ exiting: true })
   }
 
@@ -47,7 +43,7 @@ class Transition extends React.Component {
               ...getTransitionStyle({ status, timeout })
             }}
           >
-            <Fragment>{this.props.children}</Fragment>
+            <>{this.props.children}</>
           </div>
         )}
       </ReactTransition>

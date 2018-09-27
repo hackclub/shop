@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '@hackclub/icons'
+import { Icon } from '@hackclub/design-system'
 import ScrollToTop from './style'
 
 export default props => (
