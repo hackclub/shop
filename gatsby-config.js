@@ -15,6 +15,12 @@ module.exports = {
       options: {
         writeKey: '06rvzf07T9l5uxR83GNMUZeuOLGTMIOS'
       }
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://shop.hackclub.com'
+      }
     }
   ]
 }
