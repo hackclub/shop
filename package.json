@@ -11,7 +11,7 @@
     "fmt": "prettier \"{gatsby-*.js,src/**/*.js}\" --single-quote --no-semi --write"
   },
   "dependencies": {
-    "@hackclub/design-system": "^0.0.1-13",
+    "@hackclub/design-system": "^0.0.1-14",
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.7.1",
     "formik": "^1.3.0",

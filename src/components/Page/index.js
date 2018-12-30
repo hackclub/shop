@@ -211,7 +211,7 @@ export default class extends Component {
           <Header shadow={headerShadow} />
           <Container
             px={3}
-            pt={[6, null, null, 5]}
+            pt={[7, null, null, 6]}
             w={1}
             style={{ flex: '1 0 auto' }}
           >
