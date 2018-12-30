@@ -1,6 +1,6 @@
-<!--<p align="center"><img width="200px" height="200px" alt="Hack Club Shop icon" src="static/icon.png"></a>-->
-<h1 align="center"><a href="https://shop.hackclub.com">Hack Club Shop</a></h1>
-<p align="center"><i>Buy your Hack Club merch here</i></p>
+![](static/banner.png)
+
+> Buy your Hack Club merch here
 
 ### Setup
 
