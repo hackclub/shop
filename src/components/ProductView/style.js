@@ -44,9 +44,10 @@ export const Title = styled(Heading.h1).attrs({
 
 export const Description = styled(Heading.h2).attrs({
   f: 4,
-  regular: true,
   color: 'slate'
-})``
+})`
+  font-weight: 400;
+`
 
 export const Price = styled(Text).attrs({
   f: 5,
@@ -73,13 +74,15 @@ export const Divider = styled(Box)`
 `
 
 export const Label = styled(Text.span).attrs({
-  f: 2,
+  fontSize: 1,
   bg: 'snow',
   color: 'slate'
 })`
   position: relative;
   top: -13px;
   padding: 2px 16px 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 `
 
 export const ImageGrid = styled(Box)`

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
-import { LargeButton, Field, Text } from '@hackclub/design-system'
+import { LargeButton, Text } from '@hackclub/design-system'
 import BulkOrderBanner from '../BulkOrderBanner'
 import StoreContext from '../../context/StoreContext'
 import IconButton from '../IconButton'
-import { Highlight } from './style'
+import { Highlight, StyledField } from './style'
 
 const trialProductFieldNames = {
   product_id: 'entry.410110617',
@@ -102,7 +102,7 @@ const InStockProductForm = ({ added, variants, setAdded }) => (
           <>
             {values.quantity > 3 && <BulkOrderBanner />}
             {variants.edges.length !== 1 && (
-              <Field
+              <StyledField
                 name="variant"
                 value={values.variant}
                 label="Choose a size"
@@ -115,9 +115,9 @@ const InStockProductForm = ({ added, variants, setAdded }) => (
                     {variant.node.title}
                   </option>
                 ))}
-              </Field>
+              </StyledField>
             )}
-            <Field
+            <StyledField
               name="quantity"
               value={values.quantity}
               label="Choose a quantity"
@@ -171,7 +171,7 @@ const ProductWaitlistForm = ({
   >
     {({ values, errors, handleChange, handleSubmit }) => (
       <>
-        <Field
+        <StyledField
           name="email"
           value={values.email}
           label="Enter your email address"

@@ -15,7 +15,7 @@ export default ({ designer }) => (
           <Heading.h4 bold color="black">
             {designer.name}
           </Heading.h4>
-          <Heading.h5 regular color="muted">
+          <Heading.h5 color="muted" style={{ fontWeight: 400 }}>
             {designer.handle}
           </Heading.h5>
         </Flex>
