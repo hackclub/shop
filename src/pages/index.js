@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { Container, Flex, Heading } from '@hackclub/design-system'
 import Img from 'gatsby-image'
 
+import Layout from '../components/Layout'
+
 const Grid = styled(Container)`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -28,7 +30,7 @@ const Image = styled(Img)`
   left: 0;
   width: 100%;
   z-index: -1;
-  height: 440px;
+  height: 400px;
 
   // Adjust image positioning (if image covers area with defined height) and add font-family for polyfill
   & > img {
@@ -40,12 +42,12 @@ const Image = styled(Img)`
 
 const Content = styled(Flex)`
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 `
 
 export default () => (
-  <div>
+  <Layout>
     <StaticQuery
       query={graphql`
         query ProductListingQuery {
@@ -83,12 +85,12 @@ export default () => (
       render={({ products }) => (
         <Grid>
           {products.edges.map(product => (
-            <Card>
+            <Card key={product.node.id}>
               <Image
                 fluid={product.node.images[0].localFile.childImageSharp.fluid}
               />
               <Content p={3}>
-                <Heading.h3 fontSize={6} color="white">
+                <Heading.h3 fontSize={5} color="white">
                   {product.node.title}
                 </Heading.h3>
               </Content>
@@ -97,5 +99,5 @@ export default () => (
         </Grid>
       )}
     />
-  </div>
+  </Layout>
 )
