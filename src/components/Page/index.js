@@ -6,7 +6,6 @@ import { throttle } from 'throttle-debounce'
 
 import StoreContext, { defaultStoreContext } from '../../context/StoreContext'
 import Header from '../Header'
-import Transition from '../Transition'
 import Footer from '../Footer'
 import ScrollToTop from './ScrollToTop'
 import { injectGlobal } from 'styled-components'
@@ -215,7 +214,7 @@ export default class extends Component {
             w={1}
             style={{ flex: '1 0 auto' }}
           >
-            <Transition>{children}</Transition>
+            {children}
             <ScrollToTop
               isVisible={scrollToTopVisible}
               onClick={this.scrollToTop}
