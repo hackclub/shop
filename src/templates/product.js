@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
+import ProductView from '../components/ProductView'
 
 export default props => {
   const {
@@ -42,7 +43,7 @@ export default props => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@gatsbyjs" />
       </Helmet>
-      <p>{title}</p>
+      <ProductView product={product} />
     </Layout>
   )
 }

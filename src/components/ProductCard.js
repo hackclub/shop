@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Flex, theme, Heading, Text } from '@hackclub/design-system'
+import { Flex, theme, Heading, Text, Icon } from '@hackclub/design-system'
 
 const Card = styled(Link)`
   position: relative;
@@ -30,8 +30,9 @@ const Image = styled(Img)`
   }
 `
 
-const Content = styled(Flex)`
-  flex-direction: column;
+const Content = styled(Flex).attrs({
+  flexDirection: 'column'
+})`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -40,6 +41,25 @@ const Content = styled(Flex)`
     text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
   }
 `
+
+const Overlay = styled(Flex).attrs({
+  flexDirection: 'column',
+  align: 'center',
+  justify: 'center'
+})`
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0.5rem;
+
+  p {
+    text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+  }
+`
+
 export default props => {
   const {
     product: {
@@ -60,14 +80,23 @@ export default props => {
   return (
     <Card to={handle}>
       <Image fluid={fluid} />
-      <Content p={3}>
-        <Heading.h3 fontSize={5} color="white">
-          {title}
-        </Heading.h3>
-        <Text fontSize={3} color="rgba(255, 255, 255, 0.8)">
-          {JSON.parse(description).description} - ${firstVariant.price}
-        </Text>
-      </Content>
+      {firstVariant.availableForSale ? (
+        <Content p={3}>
+          <Heading.h3 fontSize={5} color="white">
+            {title}
+          </Heading.h3>
+          <Text fontSize={3} color="rgba(255, 255, 255, 0.8)">
+            {JSON.parse(description).description} - ${firstVariant.price}
+          </Text>
+        </Content>
+      ) : (
+        <Overlay>
+          <Icon glyph="private" size={64} color="white" />
+          <Text fontSize={[4, 5]} fontWeight={700} color="white">
+            Out of stock
+          </Text>
+        </Overlay>
+      )}
     </Card>
   )
 }
