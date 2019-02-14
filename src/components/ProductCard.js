@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Flex, theme, Heading } from '@hackclub/design-system'
+import { Flex, theme, Heading, Text } from '@hackclub/design-system'
 
 const Card = styled(Link)`
   position: relative;
@@ -31,9 +31,14 @@ const Image = styled(Img)`
 `
 
 const Content = styled(Flex)`
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   left: 0;
+
+  h3 {
+    text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+  }
 `
 export default props => {
   const {
@@ -59,6 +64,9 @@ export default props => {
         <Heading.h3 fontSize={5} color="white">
           {title}
         </Heading.h3>
+        <Text fontSize={3} color="rgba(255, 255, 255, 0.8)">
+          {JSON.parse(description).description} - ${firstVariant.price}
+        </Text>
       </Content>
     </Card>
   )
