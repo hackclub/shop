@@ -6,10 +6,16 @@ import { Flex, theme, Heading, Text, Icon } from '@hackclub/design-system'
 
 const Card = styled(Link)`
   position: relative;
-  transition: ${theme.transition};
+  border-radius: 0.5rem;
+  transition: transform ${theme.transition};
 
   &:hover {
     transform: translateY(-0.25rem) scale(1.0125);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white;
   }
 `
 
@@ -78,7 +84,12 @@ export default props => {
   } = firstImage
 
   return (
-    <Card to={handle}>
+    <Card
+      to={handle}
+      aria-label={`View more about ${title}, available for ${
+        firstVariant.price
+      }`}
+    >
       <Image fluid={fluid} />
       {firstVariant.availableForSale ? (
         <Content p={3}>

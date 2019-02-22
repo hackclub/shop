@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, theme, mediaQueries } from '@hackclub/design-system'
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import ProductCard from '../components/ProductCard'
 
@@ -24,33 +24,29 @@ const Grid = styled(Container)`
   }
 `
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query ProductListingQuery {
-        products: allShopifyProduct(
-          sort: { fields: [publishedAt], order: ASC }
-        ) {
-          edges {
-            node {
-              id
-              handle
+export default () => {
+  const data = useStaticQuery(graphql`
+    query ProductListingQuery {
+      products: allShopifyProduct(sort: { fields: [publishedAt], order: ASC }) {
+        edges {
+          node {
+            id
+            handle
+            title
+            description
+            productType
+            variants {
+              shopifyId
               title
-              description
-              productType
-              variants {
-                shopifyId
-                title
-                price
-                availableForSale
-              }
-              images {
-                id
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 910, maxHeight: 910) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
+              price
+              availableForSale
+            }
+            images {
+              id
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 910, maxHeight: 910) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -58,13 +54,16 @@ export default () => (
           }
         }
       }
-    `}
-    render={({ products }) => (
-      <Grid p={4}>
-        {products.edges.map(({ node: product }) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </Grid>
-    )}
-  />
-)
+    }
+  `)
+
+  const { products } = data
+
+  return (
+    <Grid px={4} pt={7}>
+      {products.edges.map(({ node: product }) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </Grid>
+  )
+}

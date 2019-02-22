@@ -7,6 +7,7 @@ import ProductGrid from '../components/ProductGrid'
 export default () => (
   <Layout>
     <BG color="darker" />
+    {/* <Nav /> */}
     <ProductGrid />
   </Layout>
 )
