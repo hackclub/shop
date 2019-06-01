@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "fmt": "prettier \"{gatsby-*.js,src/**/*.js}\" --single-quote --no-semi --write"
+    "fmt": "npx prettier \"{gatsby-*.js,src/**/*.js}\" --single-quote --no-semi --write"
   },
   "dependencies": {
     "@hackclub/design-system": "^0.0.1-14",
@@ -39,8 +39,5 @@
     "styled-components": "^3.4.9",
     "throttle-debounce": "^2.0.1",
     "yup": "^0.26.6"
-  },
-  "devDependencies": {
-    "prettier": "^1.14.3"
   }
 }
