@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, ThemeProvider, cx } from '@hackclub/design-system'
+import { Container, ThemeProvider, cx, theme } from '@hackclub/design-system'
 import Helmet from 'react-helmet'
 import { name, description, img, url } from '../../data.json'
 import { throttle } from 'throttle-debounce'
@@ -116,10 +116,12 @@ export default class extends Component {
 
     if (existingCheckoutID) {
       fetchCheckout(existingCheckoutID).then(checkout => {
-        // Make sure this cart hasn’t already been purchased.
-        if (!checkout.completedAt) {
-          setCheckoutInState(checkout)
-          return
+        if (checkout) {
+          // Make sure this cart hasn’t already been purchased.
+          if (!checkout.completedAt) {
+            setCheckoutInState(checkout)
+            return
+          }
         }
 
         createNewCheckout().then(setCheckoutInState)
@@ -163,7 +165,7 @@ export default class extends Component {
               content="width=device-width,initial-scale=1"
             />
             <meta name="format-detection" content="telephone=no" />
-            <meta name="theme-color" content="#e42d42" />
+            <meta name="theme-color" content={theme.colors.primary} />
             <meta name="description" content={pageDescription} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:site" content="@hackclub" />
