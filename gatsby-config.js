@@ -7,7 +7,7 @@ module.exports = {
       resolve: `${__dirname}/plugins/gatsby-source-shopify-storefront`,
       options: {
         siteName: 'hackclub',
-        accessToken: 'efe3b65bc5551c1d2392149fa936fe6f'
+        accessToken: 'ba720b36f1e99b2719bc74ef728ec847'
       }
     },
     {
